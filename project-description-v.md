@@ -1,0 +1,56 @@
+# OLX Slayer
+__________
+- #### (?) means "details might vary"
+__________
+- ## Summary
+	- An OLX-like site where users are able to publish `Advertisements` and others are able to see them
+	- User will be able to contact each other about a given `Advertisement` and potentially negotiate (?) terms about purchasing the product (via messages)
+	- The `Seller` can send his product to a `Buyer` to (?)a given address or just city/region
+	- After a trade the `Buyer`, after being sent a given product, confirms that he has received it and gives the `Seller` rating containing (?):
+		- How happy he was with the trade
+		- Was the `Seller` decent
+		- etc ... that rating is summarized in (?) Stars
+	- After a trade the `Seller` gives similar kind of feedback about the `Buyer`
+	- Average trade ratings are contained in user`s profiles
+_____
+- ## Pages
+	- ### Home page
+		- Some random "Welcome to our site stuff"
+		- Search bar with categories to enable searching for products
+		- Potentially, featured products
+	- ### Products listing page (after a search, etc..)
+		- List of `Advertisements`
+			- Each list item contains short details about the product
+			- Each list item has "View details" button
+			- If the logged user == `Advertisement.owner` has "Edit advertisement button"
+		- Options for filtering
+			- By name, date, price ,etc.
+		- Potentially, if implemented, featured items of that category can be on top of the list
+		- Content is paged
+	- ### Product details page
+		- Contains detailed product description
+			- `Advertisement` title, price, description, etc.
+			- Short information about the `Seller` i.e author of the `Advertisement`
+				- City, user rating, etc.
+			- (?) "Send message about this advertisement" button
+				- Redirects to a page where the `Buyer` and `Seller` "negotiate" terms
+		- If logged user is owner, "Edit" button
+	- ### Product messages page (Seller asking the buyer about terms, additional details)
+		- Accessed via the "Send message about this advertisement" button in the Product details page
+		- `Seller` is able to send a message about the given `Advertisement`
+		- Messages can be implemented via sockets or can just be reloaded upon another visit on the same page
+		- Probably needs further discussion as to how to be implemented
+	- ### User`s profile (profile owner)
+		- Preview of profile info also visible from people who view the profile
+		- List of published and active `Advertisements`
+		- (Might need separate pages)
+			- Messages from `Buyers` of user\`s published `Advertisements`
+			- Messages from `Sellers` about which the user has sent messages
+			- Can be summarized to one thing, `User`s messages`
+		- Options for profile editing
+	- ### User`s profile (not profile owner)
+		- Profile info
+			- Location, fName, lastName, profilePhoto, other trivial stuff
+			- User`s rating
+			- User`s published `Advertisements`
+	- ### Login/Register/About pages
