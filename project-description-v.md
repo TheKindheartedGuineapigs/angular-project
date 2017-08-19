@@ -22,16 +22,22 @@ _____
 		- List of `Advertisements`
 			- Each list item contains photo, name, price, and location
 			- Each list item has "View details" button
-		- Options for filtering
+		- Options for filtering 
 			- By name, date, price, city, etc.
 		- items based on publisher rating of that category can be on top of the list
 		- Content is paged/chunked
 	- ### Product details page
 		- Contains detailed product description
-			- `Advertisement` photo, title, price, description, location, publisher details etc.
-			- (?) "Send message DM to publisher" button
-				- Redirects to a page where the `Buyer` and `Seller` "negotiate" terms
-			- If the logged user == `Advertisement.owner` has "Edit advertisement button"
+			- photo
+			- title
+			- price
+			- category
+			- description
+			- location
+			- publisher details
+		- (?) "Send message DM to publisher" button
+		- Redirects to a page where the `Buyer` and `Seller` "negotiate" terms
+		- If the logged user == `Advertisement.owner` has "Edit advertisement button"
 	- ### Product messages page (Seller asking the buyer about terms, additional details)
 		- Accessed via the "Send message about this advertisement" button in the Product details page
 		- `Seller` is able to send a message about the given `Advertisement`
@@ -41,8 +47,17 @@ _____
 		- Separated pages
 			- Edit profile info
 			- Messages
-			- Advertisesements
-	- ### User`s profile (public profile pages)
+			- Advertisements
+			- Add new advertisement (it could also be a static button on page corner)
+	- ### New advertisement page
+		- Details
+			- Photos
+			- Name
+			- Category
+			- Price
+			- Description
+			- Tags(eventually if (enough time === true) ;) )
+	- ### User`s profile page (public profile pages)
 		- Profile info
 			-  Location, name, profilePhoto, location, rating
 			- User\`s published `Advertisements`
