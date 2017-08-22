@@ -1,0 +1,20 @@
+  <!-- <md-toolbar color="primary">
+    <span>Navbar</span>
+    <md-toolbar-row></md-toolbar-row>    
+    <md-toolbar-row></md-toolbar-row>
+    <md-toolbar-row><a [routerLink]="['/signup']">Register</a></md-toolbar-row>
+</md-toolbar>   -->
+
+<!-- Angular material not used, check whether that`s OK -->
+<nav>
+	<div class="nav-wrapper">
+		<ul class="">
+			<li><a [routerLink]="['/']">Home</a></li>
+			<li><a [routerLink]="['/advertisements']">Advertisements</a></li>
+		</ul>
+		<ul class="right">
+			<li><a [routerLink]="['/signup']">Register</a></li>
+			<li><a [routerLink]="['/login']">Login</a></li>
+		</ul>
+	</div>
+</nav>
