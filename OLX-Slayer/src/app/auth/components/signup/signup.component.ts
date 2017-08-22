@@ -13,7 +13,6 @@ export class SignUpComponent {
   constructor(private userService: UserService, private router: Router) {  }
 
   onSubmit(formData) {
-    console.log(formData.value);
     if (formData.valid) {
       this.userService.signup(formData)
       .then(
