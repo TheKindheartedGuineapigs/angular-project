@@ -13,4 +13,12 @@ export class UserService {
     signup (formData) {
         return this.afAuth.auth.createUserWithEmailAndPassword(formData.value.email, formData.value.password);
     }
+
+    login (formData) {
+        return this.afAuth.auth.signInWithEmailAndPassword(formData.value.email, formData.value.password);
+    }
+
+    logout () {
+        this.afAuth.auth.signOut();
+    }
 }
