@@ -13,8 +13,8 @@
 			<li><a [routerLink]="['/advertisements']">Advertisements</a></li>
 		</ul>
 		<ul class="right">
-			<li><a [routerLink]="['/signup']">Register</a></li>
-			<li><a [routerLink]="['/login']">Login</a></li>
+			<li><a (click)="openSignUpModal()">Register</a></li>
+			<li><a (click)="openLogInModal()">Login</a></li>
 		</ul>
 	</div>
 </nav>
