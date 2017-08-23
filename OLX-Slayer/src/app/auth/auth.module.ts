@@ -18,7 +18,9 @@ import { ModalModule } from 'ngx-bootstrap';
         CommonModule,
         ModalModule.forRoot(),
     ],
-    entryComponents: [SignUpComponent],
+    entryComponents: [
+        SignUpComponent,
+        LoginComponent],
     providers: [
         UserService,
         BsModalRef,
