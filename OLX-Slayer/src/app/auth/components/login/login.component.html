@@ -1,10 +1,19 @@
-<div *ngIf="error">
-    {{ error }}
+<div class="modal-header">
+  <h4>Log in</h4>
+</div>
+<div class="modal-body">
+  <div *ngIf="error">
+    <p>{{error}}</p>
   </div>
   <form #formData='ngForm' (ngSubmit)="onSubmit(formData)">
-    <label for="inputEmail">Email address:</label>
-    <input name="email" type="email" placeholder="Email"  id="inputEmail" required (ngModel)="email">
-    <label for="inputPassword">Password:</label>
-    <input name="password" type="password" placeholder="Password"  id="inputPassword" required (ngModel)="password">
-    <button type="submit" [disabled]="!formData.valid">Submit</button>
+    <div class="form-group">
+      <label for="inputEmail">Email address:</label>
+      <input class="form-control" name="email" type="email" placeholder="Email" id="inputEmail" required (ngModel)="email">
+    </div>
+    <div class="form-group">
+      <label for="inputPassword">Password:</label>
+      <input class="form-control" name="password" type="password" placeholder="Password" id="inputPassword" required (ngModel)="password">
+    </div>
+    <button type="submit" class="btn btn-primary" [disabled]="!formData.valid">Log in</button>
   </form>
+</div>
