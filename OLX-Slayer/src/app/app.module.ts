@@ -1,3 +1,4 @@
+import { SignUpComponent } from './auth/components/signup/signup.component';
 import { FormsModule } from '@angular/forms';
 import { UserService } from './services/user.services';
 import { RoutingModule } from './router/app.router';
@@ -17,7 +18,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SearchComponent } from '../app/home/search/search.component';
 import { DummyComponent } from './dummy/dummy.component';
 
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,15 +31,11 @@ import { DummyComponent } from './dummy/dummy.component';
     AuthModule,
     RouterModule,
     RoutingModule,
-
     MdToolbarModule,
     BrowserAnimationsModule,
     FormsModule
   ],
-  providers: [
-    UserService,
-    AngularFireAuth
-  ],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
