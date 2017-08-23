@@ -5,8 +5,6 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 const appRoutes: Routes = [
-  { path: 'signup', component: SignUpComponent },
-  { path: 'login', component: LoginComponent },
   { path: 'advertisements', component: DummyComponent }
 ];
 
