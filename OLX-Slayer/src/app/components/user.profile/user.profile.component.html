@@ -1,0 +1,63 @@
+<div class="container">
+    <div class="text-center">
+        <h1> {{currentUser.displayName}}'s Profile</h1>
+    </div>
+    <div class="row">
+        <tabset class="col-md-8 col-sm-8 col-xs-12">
+            <tab heading="Personal Details">
+                <form #detailsFormData='ngForm' (ngSubmit)="onSubmitPersonalDetails(detailsFormData)">
+                    <div class="form-group">
+                        <label for="username">Username:</label>
+                        <input type="text" id="username" placeholder="username" name="username" class="form-control" (ngModel)="username">
+                    </div>
+                    <div class="form-group">
+                        <label for="first-name">First Name:</label>
+                        <input type="text" id="first-name" placeholder="your first name" name="firstName" class="form-control" (ngModel)="firstName">
+                    </div>
+                    <div class="form-group">
+                        <label for="last-name">Last Name:</label>
+                        <input type="text" id="last-name" placeholder="your last name" name="lastName" class="form-control" (ngModel)="lastName">
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone number:</label>
+                        <input type="text" id="phone" placeholder="your phone nuber" name="phoneNumber" class="form-control" (ngModel)="phoneNumber">
+                    </div>
+                    <div>
+                        <button class="btn btn-primary">Update</button>
+                    </div>
+                </form>
+            </tab>
+            <tab heading="Address">
+                <form #adressFormData='ngForm' (ngSubmit)="onSubmitAddress(adressformData)">
+                    <div class="form-group">
+                        <label for="address-one">Address 1:</label>
+                        <input type="text" id="address-one" placeholder="First address" name="addressOne" class="form-control" (ngModel)="addressOne">
+                    </div>
+                    <div class="form-group">
+                        <label for="address-two">Address 2:</label>
+                        <input type="text" id="address-two" placeholder="Second address" name="addressTwo" class="form-control" (ngModel)="addressTwo">
+                    </div>
+                    <div class="form-group">
+                        <label for="city">City:</label>
+                        <input type="text" id="city" placeholder="City" name="city" class="form-control" (ngModel)="city">
+                    </div>
+                    <div class="form-group">
+                        <label for="country">Country:</label>
+                        <input type="text" id="country" placeholder="Country" name="country" class="form-control" (ngModel)="country">
+                    </div>
+                    <div>
+                        <button class="btn btn-primary">Update</button>
+                    </div>
+                </form>
+            </tab>
+            <tab heading="Profile Picture">
+                <div class="text-center">
+                    <img src="http://lorempixel.com/200/200/people/9/" class="rounded" alt="avatar">
+                    <h6>Upload a different photo...</h6>
+                    <input #file type="file" (onChange)="onSubmitPicture(file)" class="text-center center-block well well-sm">
+                </div>
+            </tab>
+            <tab heading="Change Password">Static content 2</tab>
+        </tabset>
+    </div>
+</div>
