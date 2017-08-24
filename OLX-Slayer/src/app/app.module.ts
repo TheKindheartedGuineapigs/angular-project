@@ -1,3 +1,4 @@
+import { UserProfileComponent } from './components/user.profile/user.profile.component';
 import { SignUpComponent } from './auth/components/signup/signup.component';
 import { FormsModule } from '@angular/forms';
 import { UserService } from './services/user.services';
@@ -11,19 +12,21 @@ import { AngularFireAuth } from 'angularfire2/auth';
 
 import { firebaseConfig } from '../environments/firebase.config';
 import { AppComponent } from './app.component';
-
+import { TabsModule } from 'ngx-bootstrap';
 import { NavigationComponent } from '../app/home/navigation/navigation.component';
 import { MdToolbarModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SearchComponent } from '../app/home/search/search.component';
 import { DummyComponent } from './dummy/dummy.component';
+import { HttpModule } from '@angular/http';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavigationComponent,
     SearchComponent,
-    DummyComponent
+    DummyComponent,
+    UserProfileComponent
   ],
   imports: [
     BrowserModule,
@@ -33,7 +36,9 @@ import { DummyComponent } from './dummy/dummy.component';
     RoutingModule,
     MdToolbarModule,
     BrowserAnimationsModule,
-    FormsModule
+    FormsModule,
+    TabsModule.forRoot(),
+    HttpModule
   ],
   providers: [],
   bootstrap: [AppComponent]
