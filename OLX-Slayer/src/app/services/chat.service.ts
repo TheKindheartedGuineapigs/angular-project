@@ -11,4 +11,8 @@ export class ChatService {
   loadUserChats(loggedUsername: string) {
     return this.http.get(`http://localhost:3000/api/chats/${loggedUsername}`);
   }
+
+  loadChat(loggedUsername: string, otherParticipant: string) {
+    return this.http.get(`http://localhost:3000/api/chats?sender=${loggedUsername}&recipient=${otherParticipant}`);
+  }
 }

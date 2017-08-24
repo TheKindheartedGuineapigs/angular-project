@@ -6,13 +6,18 @@
   <div class="col md6 s12 m6">
     <div class="card red darken-1">
       <div class="card-content white-text">
-        <span class="card-title" *ngFor="let participant of chat.participants">
-          <b *ngIf="participant != loggedUsername">{{participant}}</b>
-        </span>
+        <ng-container *ngFor="let participant of chat.participants">
+          <span *ngIf="participant != loggedUsername" class="card-title" >
+            <b>{{participant}}</b>
+          </span>
+        </ng-container>
+        
         <p>Include last message here</p> 
       </div>
       <div class="card-action">
-        <a class="btn" href="#">Open</a>
+        <ng-container *ngFor="let participant of chat.participants">
+          <a *ngIf="participant != loggedUsername" class="btn" [routerLink]="['/chats/' + participant]">Open chat</a>
+        </ng-container>
       </div>
     </div>
   </div>
