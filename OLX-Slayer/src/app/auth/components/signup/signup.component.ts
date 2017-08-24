@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { BsModalRef } from 'ngx-bootstrap/modal/modal-options.class';
 
 @Component({
-  selector: 'app-signup.component.ts',
+  selector: 'app-signup',
   templateUrl: './signup.component.html',
   styleUrls: ['./signup.component.css']
 })
