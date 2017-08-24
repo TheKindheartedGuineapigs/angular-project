@@ -27,7 +27,7 @@ export class ImgurService {
     uploadImg(img): Observable<any> {
         const headers = new Headers({'Authorization': 'Client-ID ' + this.clientId});
 
-        const test = new Options(this.uploadUrl, 'POST', { 'Authorization': 'Client-ID ' + this.clientId}, img);    
+        const test = new Options(this.uploadUrl, 'POST', { 'Authorization': 'Client-ID ' + this.clientId}, img);
 
         return this.http.post(this.uploadUrl, img, test);
     }
