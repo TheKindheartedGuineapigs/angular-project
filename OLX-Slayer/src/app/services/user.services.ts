@@ -25,6 +25,18 @@ export class UserService {
         this.afAuth.auth.signOut();
     }
 
-    updatePersonalDetails (obj) {
+    updateUserDetails (name: string, photoUrl: string) {
+        this.user.subscribe(user => {
+            const profile = {
+                displayName: name,
+                photoURL: photoUrl
+            };
+            user.updateProfile(profile)
+                .then(() => {
+                    console.log('success, Img uploaded.');
+                }).catch(err => {
+                    console.log(err);
+                });
+        });
     }
 }
