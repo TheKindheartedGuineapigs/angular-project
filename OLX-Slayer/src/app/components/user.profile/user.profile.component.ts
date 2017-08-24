@@ -15,5 +15,10 @@ export class UserProfileComponent {
     }
 
     onSubmitPicture(file) {
+        this.imgService.uploadImg(file)
+            .map((res) => res.json())
+            .subscribe(responce => {
+                this.userService.updateUserDetails(this.currentUser.displayName, responce.data.link);
+            });
     }
 }
