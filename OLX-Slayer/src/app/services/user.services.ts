@@ -5,11 +5,14 @@ import * as firebase from 'firebase';
 
 @Injectable()
 export class UserService {
-    user: Observable<firebase.User>;
+    private user: Observable<firebase.User>;
     constructor (private afAuth: AngularFireAuth) {
         this.user = afAuth.authState;
     }
 
+    getCurrentUser (): Observable<firebase.User> {
+        return this.user;
+    }
     signup (formData) {
         return this.afAuth.auth.createUserWithEmailAndPassword(formData.value.email, formData.value.password);
     }
@@ -20,5 +23,8 @@ export class UserService {
 
     logout () {
         this.afAuth.auth.signOut();
+    }
+
+    updatePersonalDetails (obj) {
     }
 }
