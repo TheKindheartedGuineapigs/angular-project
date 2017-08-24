@@ -1,6 +1,21 @@
 import { Observable } from 'rxjs/Observable';
 import { Injectable } from '@angular/core';
-import { Http, RequestOptions } from '@angular/http';
+import { Http, RequestOptions, RequestOptionsArgs } from '@angular/http';
+
+class Options implements RequestOptionsArgs {
+    url;
+    method;
+    headers;
+    body;
+
+    constructor(url, method, headers, body) {
+        this.url = url;
+        this.method = method;
+        this.headers = headers;
+        this.body = body;
+    }
+}
+
 
 @Injectable()
 export class ImgurService {
@@ -11,7 +26,9 @@ export class ImgurService {
 
     uploadImg(img): Observable<any> {
         const headers = new Headers({'Authorization': 'Client-ID ' + this.clientId});
-        const options = new RequestOptions({headers: headers});
-        return this.http.post(this.uploadUrl, img, options);
+
+        const test = new Options(this.uploadUrl, 'POST', { 'Authorization': 'Client-ID ' + this.clientId}, img);    
+
+        return this.http.post(this.uploadUrl, img, test);
     }
 }
