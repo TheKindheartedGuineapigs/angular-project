@@ -8,15 +8,27 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./chatroom.component.css']
 })
 export class ChatroomComponent implements OnInit {
-  loggedUsername = 'az';
+  loggedUsername = 'gosho';
   otherUsername: string;
   chat;
 
+  isDataLoaded: boolean;
+
   constructor(private route: ActivatedRoute, private chatService: ChatService) {
-    console.log(route.snapshot.params.username);
+    this.isDataLoaded = false;
+    this.otherUsername = route.snapshot.params.username;
   }
 
   ngOnInit() {
+    this.loadChat(this.loggedUsername, this.otherUsername)
+      .subscribe((res) => {
+        this.chat = res.result;
+        this.isDataLoaded = true;
+      });
   }
 
+  private  loadChat(user1, user2) {
+    return this.chatService.loadChat(user1, user2)
+      .map(res => res.json());
+  }
 }

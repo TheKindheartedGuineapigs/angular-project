@@ -1,3 +1,13 @@
-<p>
-  chatroom works! {{otherUsername}}
-</p>
+<ng-container *ngIf="isDataLoaded">
+  <app-messages-list
+    [loggedUsername]="loggedUsername"
+    [chat]="chat"
+  >
+  </app-messages-list>
+
+  <app-message-send
+    [loggedUsername]="loggedUsername"
+    [chat]="chat"
+  >
+  </app-message-send>
+</ng-container>

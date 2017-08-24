@@ -1,0 +1,7 @@
+<hr>
+<h5>Chat between users {{chat.participants}}</h5>
+<hr>
+  <div *ngFor="let msg of chat.messages">
+    <b>{{msg.author}} said</b> : {{msg.text}}
+  </div>
+<hr>
