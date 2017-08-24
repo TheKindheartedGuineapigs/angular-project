@@ -52,9 +52,10 @@
             </tab>
             <tab heading="Profile Picture">
                 <div class="text-center">
-                    <img src="http://lorempixel.com/200/200/people/9/" class="rounded" alt="avatar">
+                    <img src="{{currentUser.photoURL}}" class="rounded" alt="avatar">
                     <h6>Upload a different photo...</h6>
-                    <input #file type="file" (onChange)="onSubmitPicture(file)" class="text-center center-block well well-sm">
+                    <input #file type="file" class="text-center center-block well well-sm">
+                    <button class="btn btn-success" (click)="onSubmitPicture(file.files[0])">Submit</button>
                 </div>
             </tab>
             <tab heading="Change Password">Static content 2</tab>
