@@ -1,3 +1,4 @@
+import { ImgurService } from './services/imgur.service';
 import { UserProfileComponent } from './components/user.profile/user.profile.component';
 import { SignUpComponent } from './auth/components/signup/signup.component';
 import { FormsModule } from '@angular/forms';
@@ -40,7 +41,7 @@ import { HttpModule } from '@angular/http';
     TabsModule.forRoot(),
     HttpModule
   ],
-  providers: [],
+  providers: [ImgurService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
