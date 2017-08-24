@@ -1,3 +1,19 @@
-<p>
-  chatlist works!
-</p>
+<h2 (click)="showMessages()">
+  Chats of {{loggedUsername}}:
+</h2>
+
+<div class="row" *ngFor="let chat of chats">
+  <div class="col md6 s12 m6">
+    <div class="card red darken-1">
+      <div class="card-content white-text">
+        <span class="card-title" *ngFor="let participant of chat.participants">
+          <b *ngIf="participant != loggedUsername">{{participant}}</b>
+        </span>
+        <p>Include last message here</p> 
+      </div>
+      <div class="card-action">
+        <a class="btn" href="#">Open</a>
+      </div>
+    </div>
+  </div>
+</div>

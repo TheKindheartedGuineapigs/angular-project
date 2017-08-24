@@ -1,3 +1,5 @@
+import { HttpModule } from '@angular/http';
+import { ChatModule } from './chat/chat.module';
 import { SignUpComponent } from './auth/components/signup/signup.component';
 import { FormsModule } from '@angular/forms';
 import { UserService } from './services/user.services';
@@ -33,7 +35,9 @@ import { DummyComponent } from './dummy/dummy.component';
     RoutingModule,
     MdToolbarModule,
     BrowserAnimationsModule,
-    FormsModule
+    FormsModule,
+    ChatModule,
+    HttpModule
   ],
   providers: [],
   bootstrap: [AppComponent]

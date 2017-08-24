@@ -1,3 +1,4 @@
+import { ChatService } from './../services/chat.service';
 import { RouterModule, Routes } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -14,6 +15,7 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes),
     CommonModule
   ],
-  declarations: [ChatroomComponent, ChatlistComponent]
+  declarations: [ChatroomComponent, ChatlistComponent],
+  providers: [ChatService]
 })
 export class ChatModule { }
