@@ -11,7 +11,6 @@ export class ChatroomComponent implements OnInit {
   loggedUsername = 'gosho';
   otherUsername: string;
   chat;
-
   isDataLoaded: boolean;
 
   constructor(private route: ActivatedRoute, private chatService: ChatService) {
@@ -20,15 +19,19 @@ export class ChatroomComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.loadChat(this.loggedUsername, this.otherUsername)
-      .subscribe((res) => {
-        this.chat = res.result;
-        this.isDataLoaded = true;
-      });
+    this.loadChat(this.loggedUsername, this.otherUsername);
+  }
+
+  reloadData() {
+    this.loadChat(this.loggedUsername, this.otherUsername);
   }
 
   private  loadChat(user1, user2) {
     return this.chatService.loadChat(user1, user2)
-      .map(res => res.json());
+      .map(res => res.json())
+      .subscribe((res) => {
+        this.chat = res.result;
+        this.isDataLoaded = true;
+      });
   }
 }

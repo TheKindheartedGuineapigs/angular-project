@@ -10,24 +10,22 @@ import { Component, OnInit } from '@angular/core';
 export class ChatlistComponent implements OnInit {
   chats;
   loggedUsername = 'pesho';
+  isDataLoaded: boolean;
 
-  constructor(private chatService: ChatService) { 
-    this.chatService.loadUserChats(this.loggedUsername)
-      .map((res) => res.json())
-      .subscribe((res) => {
-        this.chats = res.result;
-      });
+  constructor(private chatService: ChatService) {
+    this.isDataLoaded = false;
   }
 
   ngOnInit() {
-    
+    this.loadChats(this.loggedUsername);
   }
 
-  showMessages() {
-    this.chatService.loadUserChats(this.loggedUsername)
+  loadChats(username) {
+    this.chatService.loadUserChats(username)
       .map((res) => res.json())
       .subscribe((res) => {
-        console.log(res.result);
+        this.chats = res.result;
+        this.isDataLoaded = true;
       });
   }
 }

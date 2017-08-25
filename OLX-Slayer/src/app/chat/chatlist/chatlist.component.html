@@ -1,24 +1,25 @@
-<h2 (click)="showMessages()">
+<h2>
   Chats of {{loggedUsername}}:
 </h2>
 
-<div class="row" *ngFor="let chat of chats">
-  <div class="col md6 s12 m6">
-    <div class="card red darken-1">
-      <div class="card-content white-text">
-        <ng-container *ngFor="let participant of chat.participants">
-          <span *ngIf="participant != loggedUsername" class="card-title" >
-            <b>{{participant}}</b>
-          </span>
-        </ng-container>
-        
-        <p>Include last message here</p> 
-      </div>
-      <div class="card-action">
-        <ng-container *ngFor="let participant of chat.participants">
-          <a *ngIf="participant != loggedUsername" class="btn" [routerLink]="['/chats/' + participant]">Open chat</a>
-        </ng-container>
+<ng-container *ngIf="isDataLoaded">
+  <div class="row" *ngFor="let chat of chats">
+    <div class="col md6 s12 m6">
+      <div class="card red darken-1">
+        <div class="card-content white-text">
+          <ng-container *ngFor="let participant of chat.participants">
+            <span *ngIf="participant != loggedUsername" class="card-title" >
+              <b>{{participant}}</b>
+            </span>
+          </ng-container>        
+          <p>Include last message here</p> 
+        </div>
+        <div class="card-action">
+          <ng-container *ngFor="let participant of chat.participants">
+            <a *ngIf="participant != loggedUsername" class="btn" [routerLink]="['/chats/' + participant]">Open chat</a>
+          </ng-container>
+        </div>
       </div>
     </div>
   </div>
-</div>
+</ng-container>

@@ -2,12 +2,13 @@
   <app-messages-list
     [loggedUsername]="loggedUsername"
     [chat]="chat"
+    (refreshClicked)="reloadData()"
   >
   </app-messages-list>
-
   <app-message-send
     [loggedUsername]="loggedUsername"
     [chat]="chat"
+    (messageSent)="reloadData()"
   >
   </app-message-send>
 </ng-container>

@@ -19,7 +19,14 @@ const appRoutes: Routes = [
     CommonModule,
     FormsModule
   ],
-  declarations: [ChatroomComponent, ChatlistComponent, MessageSendComponent, MessagesListComponent],
-  providers: [ChatService]
+  declarations: [
+    ChatroomComponent,
+    ChatlistComponent,
+    MessageSendComponent,
+    MessagesListComponent
+  ],
+  providers: [
+    ChatService
+  ]
 })
 export class ChatModule { }
