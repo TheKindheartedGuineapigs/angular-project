@@ -2,7 +2,7 @@
 import { Message } from './message';
 
 export class Chat {
-    participantOne: string;
-    participantTwo: string;
+    _id;
+    participants: string[];
     messages: Message[];
 }

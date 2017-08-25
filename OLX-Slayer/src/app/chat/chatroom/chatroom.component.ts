@@ -1,3 +1,4 @@
+import { Chat } from './../../models/chat';
 import { ChatService } from './../../services/chat.service';
 import { ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
@@ -10,7 +11,7 @@ import { Component, OnInit } from '@angular/core';
 export class ChatroomComponent implements OnInit {
   loggedUsername = 'gosho';
   otherUsername: string;
-  chat;
+  chat: Chat;
   isDataLoaded: boolean;
 
   constructor(private route: ActivatedRoute, private chatService: ChatService) {

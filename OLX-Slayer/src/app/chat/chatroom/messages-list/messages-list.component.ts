@@ -1,3 +1,4 @@
+import { Chat } from './../../../models/chat';
 import { ChatService } from './../../../services/chat.service';
 import { ActivatedRoute } from '@angular/router';
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
@@ -9,10 +10,10 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 })
 export class MessagesListComponent implements OnInit {
   @Input()
-  loggedUsername;
+  loggedUsername: string;
 
   @Input()
-  chat;
+  chat: Chat;
 
   @Output()
   refreshClicked: EventEmitter<any>;

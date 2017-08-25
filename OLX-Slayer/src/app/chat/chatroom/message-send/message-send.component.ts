@@ -1,3 +1,5 @@
+import { Message } from './../../../models/message';
+import { Chat } from './../../../models/chat';
 import { ChatService } from './../../../services/chat.service';
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
@@ -7,16 +9,16 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./message-send.component.css']
 })
 export class MessageSendComponent implements OnInit {
-  private _chat;
+  private _chat: Chat;
   messageText: string;
 
   @Input()
-  set chat(chat: any) {
+  set chat(chat: Chat) {
     this._chat = chat;
   }
 
   @Input()
-  loggedUsername;
+  loggedUsername: string;
 
   @Output()
   messageSent: EventEmitter<any>;
@@ -30,10 +32,9 @@ export class MessageSendComponent implements OnInit {
   }
 
   onMessageSubmit() {
-    const msg = {
-      author: this.loggedUsername,
-      text: this.messageText
-    };
+    const msg = new Message();
+    msg.author = this.loggedUsername;
+    msg.text = this.messageText;
 
     this.chatService.sendMessage(this._chat._id, msg)
       .subscribe((res) => {

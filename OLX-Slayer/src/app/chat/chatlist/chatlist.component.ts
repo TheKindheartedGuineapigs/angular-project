@@ -1,3 +1,4 @@
+import { Chat } from './../../models/chat';
 import { ChatService } from './../../services/chat.service';
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
@@ -8,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./chatlist.component.css']
 })
 export class ChatlistComponent implements OnInit {
-  chats;
+  chats: Chat[];
   loggedUsername = 'pesho';
   isDataLoaded: boolean;
 
