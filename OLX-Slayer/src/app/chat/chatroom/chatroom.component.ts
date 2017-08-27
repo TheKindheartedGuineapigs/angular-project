@@ -9,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./chatroom.component.css']
 })
 export class ChatroomComponent implements OnInit {
-  loggedUsername = 'gosho';
+  loggedUsername = 'tosho';
   otherUsername: string;
   chat: Chat;
   isDataLoaded: boolean;

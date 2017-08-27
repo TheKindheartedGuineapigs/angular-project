@@ -1,0 +1,23 @@
+.top-bar {
+  background: #666;
+  color: white;
+  padding: 1%;
+}
+
+
+.messages {
+  background: white;
+  padding: 1%;
+  border-radius: 5px;
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
+  max-width:100%;
+}
+
+.base_sent {
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+
+.msg-content {
+    word-wrap: break-word;
+}

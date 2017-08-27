@@ -9,13 +9,10 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./message-send.component.css']
 })
 export class MessageSendComponent implements OnInit {
-  private _chat: Chat;
   messageText: string;
 
   @Input()
-  set chat(chat: Chat) {
-    this._chat = chat;
-  }
+  chat: Chat;
 
   @Input()
   loggedUsername: string;
@@ -36,7 +33,7 @@ export class MessageSendComponent implements OnInit {
     msg.author = this.loggedUsername;
     msg.text = this.messageText;
 
-    this.chatService.sendMessage(this._chat._id, msg)
+    this.chatService.sendMessage(this.chat._id, msg)
       .subscribe((res) => {
         this.messageText = '';
         this.messageSent.emit('Sent');

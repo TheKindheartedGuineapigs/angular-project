@@ -10,7 +10,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ChatlistComponent implements OnInit {
   chats: Chat[];
-  loggedUsername = 'pesho';
+  loggedUsername = 'tosho';
   isDataLoaded: boolean;
 
   constructor(private chatService: ChatService) {

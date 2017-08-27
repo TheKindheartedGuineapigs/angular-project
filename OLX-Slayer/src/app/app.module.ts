@@ -39,6 +39,7 @@ import { DummyComponent } from './dummy/dummy.component';
     ChatModule,
     HttpModule
   ],
+  exports: [NavigationComponent],
   providers: [],
   bootstrap: [AppComponent]
 })

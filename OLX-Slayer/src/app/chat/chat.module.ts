@@ -29,4 +29,5 @@ const appRoutes: Routes = [
     ChatService
   ]
 })
+
 export class ChatModule { }

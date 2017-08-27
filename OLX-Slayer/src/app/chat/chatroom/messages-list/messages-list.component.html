@@ -1,10 +1,34 @@
-<hr>
-<h5>Chat between users {{chat.participants}}</h5>
-<hr>
-  <div *ngFor="let msg of chat.messages">
-    <b>{{msg.author}} said</b> : {{msg.text}}
-  </div>
-<hr>
-<a class="right" (click)="onRefreshClick()">
-  <i class="material-icons">refresh</i>
-</a>
+<div class="row">
+    <div class="col s12">
+        <div class="col s12">
+          <div class="top-bar">
+              <div>
+                  <h3 class="panel-title"><span class="glyphicon glyphicon-comment"></span> Chat - {{chat.participants}}</h3>
+              </div>
+          </div>
+          <div class="divider"></div>
+
+          <div class="">
+            <ng-container *ngFor="let msg of chat.messages">
+              <div class="row" *ngIf="msg.author === loggedUsername">
+                  <div class="col s10">
+                      <div class="messages blue">
+                        <span><b>{{msg.author}} said:</b></span>
+                        <div class="msg-content">{{msg.text}}</div>
+                      </div>
+                  </div>
+              </div>
+
+              <div class="row base_sent" *ngIf="msg.author !== loggedUsername">
+                  <div class="col-md-10 col-xs-10 ">
+                      <div class="messages green">
+                        <span><b>{{msg.author}} said:</b></span>
+                        <div class="msg-content">{{msg.text}}</div>
+                      </div>
+                  </div>
+              </div>
+            </ng-container>
+          </div>
+        </div>
+    </div>
+</div>
