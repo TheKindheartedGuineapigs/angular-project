@@ -7,7 +7,9 @@ import { Routes, RouterModule } from '@angular/router';
 
 const appRoutes: Routes = [
   { path: 'advertisements', component: DummyComponent },
-  { path: 'profile', component: UserProfileComponent}
+  { path: 'profile', component: UserProfileComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'signup', component: SignUpComponent }
 ];
 
 @NgModule({

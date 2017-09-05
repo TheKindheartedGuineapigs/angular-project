@@ -1,4 +1,4 @@
-  <!-- <md-toolbar color="primary">
+<!-- <md-toolbar color="primary">
     <span>Navbar</span>
     <md-toolbar-row></md-toolbar-row>    
     <md-toolbar-row></md-toolbar-row>
@@ -13,8 +13,9 @@
 			<li><a [routerLink]="['/advertisements']">Advertisements</a></li>
 		</ul>
 		<ul class="right">
-			<li><a (click)="openSignUpModal()">Register</a></li>
-			<li><a (click)="openLogInModal()">Login</a></li>
+			<li><a [routerLink]="['/signup']">Register</a></li>
+			<li><a [routerLink]="['/login']">Login</a></li>
+
 		</ul>
 	</div>
 </nav>
