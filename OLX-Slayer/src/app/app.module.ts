@@ -11,6 +11,7 @@ import { NgModule } from '@angular/core';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { AngularFireDatabase } from 'angularfire2/database';
+import { AuthGuardService } from './services/auth.guard.service';
 
 import { firebaseConfig } from '../environments/firebase.config';
 import { AppComponent } from './app.component';
@@ -44,7 +45,8 @@ import { HttpModule } from '@angular/http';
   ],
   providers: [
     ImgurService,
-    AngularFireDatabase
+    AngularFireDatabase,
+    AuthGuardService
   ],
   bootstrap: [AppComponent]
 })
