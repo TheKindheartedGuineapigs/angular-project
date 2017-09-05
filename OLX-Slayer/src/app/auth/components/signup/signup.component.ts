@@ -1,7 +1,6 @@
 import { UserService } from './../../../services/user.services';
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { BsModalRef } from 'ngx-bootstrap/modal/modal-options.class';
 
 @Component({
   selector: 'app-signup',
@@ -10,14 +9,14 @@ import { BsModalRef } from 'ngx-bootstrap/modal/modal-options.class';
 })
 export class SignUpComponent {
   public error: any;
-  constructor(private userService: UserService, private router: Router, public bsModalRef: BsModalRef) {  }
+  constructor(private userService: UserService, private router: Router) {  }
 
   onSubmit(formData) {
     if (formData.valid) {
       this.userService.signup(formData)
       .then(
-        (success) => {
-        console.log(success);
+        () => {
+        console.log('success');
         this.router.navigate(['/profile']);
       }).catch(
         (err) => {
