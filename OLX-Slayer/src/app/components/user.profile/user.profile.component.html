@@ -1,6 +1,6 @@
 <div class="container">
     <div class="text-center">
-        <h1> {{currentUser.displayName}}'s Profile</h1>
+        <h1>Your Profile</h1>
     </div>
     <div class="row">
         <tabset class="col-md-8 col-sm-8 col-xs-12">
@@ -28,7 +28,7 @@
                 </form>
             </tab>
             <tab heading="Address">
-                <form #adressFormData='ngForm' (ngSubmit)="onSubmitAddress(adressformData)">
+                <form #adressFormData='ngForm' (ngSubmit)="onSubmitAddress(adressFormData)">
                     <div class="form-group">
                         <label for="address-one">Address 1:</label>
                         <input type="text" id="address-one" placeholder="First address" name="addressOne" class="form-control" (ngModel)="addressOne">
@@ -58,7 +58,26 @@
                     <button class="btn btn-success" (click)="onSubmitPicture(file.files[0])">Submit</button>
                 </div>
             </tab>
-            <tab heading="Change Password">Static content 2</tab>
+            <tab heading="Change Password">
+                <div class="container">
+                    <div *ngIf="message">
+                        {{ message }}
+                    </div>
+                    <h2>Reset Password</h2>
+                    <form #formData='ngForm' (ngSubmit)="onSubmitResetPassword(formData)">
+                        <div class="form-group">
+                            <div class="small-12 columns">
+                                <label> Enter email address</label>
+                                <input class="form-control" type="email" name="email" placeholder="e.g email@address.com" (ngModel)="email" required>
+                            </div>
+                            <div>
+                                <br>
+                                <button type="submit" class="btn btn-primary" [disabled]="!formData.valid">Submit</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </tab>
         </tabset>
     </div>
 </div>
