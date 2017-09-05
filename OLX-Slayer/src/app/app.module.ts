@@ -10,6 +10,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuth } from 'angularfire2/auth';
+import { AngularFireDatabase } from 'angularfire2/database';
 
 import { firebaseConfig } from '../environments/firebase.config';
 import { AppComponent } from './app.component';
@@ -41,7 +42,10 @@ import { HttpModule } from '@angular/http';
     TabsModule.forRoot(),
     HttpModule
   ],
-  providers: [ImgurService],
+  providers: [
+    ImgurService,
+    AngularFireDatabase
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
