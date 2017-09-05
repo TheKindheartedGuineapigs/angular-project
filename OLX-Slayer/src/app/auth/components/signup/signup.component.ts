@@ -18,7 +18,7 @@ export class SignUpComponent {
       .then(
         (success) => {
         console.log(success);
-        // this.router.navigate(['/profile']); TODO: implement profile component
+        this.router.navigate(['/profile']);
       }).catch(
         (err) => {
         console.log(err);

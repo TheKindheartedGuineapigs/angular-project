@@ -12,13 +12,14 @@ export class LoginComponent {
     public error: any;
 
     constructor(private userService: UserService, private router: Router, public bsModalRef: BsModalRef) { }
+
     onSubmit(formData) {
         if (formData.valid) {
             this.userService.login(formData)
                 .then(
                 (success) => {
                     console.log(success);
-                    // this.router.navigate(['/profile']); TODO: profile component
+                    this.router.navigate(['/profile']);
                 }).catch(
                 (err) => {
                     console.log(err);
