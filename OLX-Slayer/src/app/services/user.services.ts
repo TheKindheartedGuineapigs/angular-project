@@ -24,7 +24,12 @@ export class UserService {
     }
 
     logout() {
-        this.afAuth.auth.signOut();
+        this.afAuth.auth.signOut()
+            .then(() => {
+                console.log('you are now loged out!');
+            }).catch(error => {
+                console.log(error);
+            });
     }
 
     resetPasswor(email): firebase.Promise<any> {

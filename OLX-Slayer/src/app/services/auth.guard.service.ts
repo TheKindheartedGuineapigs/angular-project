@@ -11,7 +11,7 @@ export class AuthGuardService implements CanActivate {
 
     canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
         this.afAuth.authState.subscribe((user) =>  {
-          if (user == null) {
+          if (user === null) {
             console.log('must be loged in to continue');
             this.router.navigate(['/login']);
             this.isLoggedIn = false;
