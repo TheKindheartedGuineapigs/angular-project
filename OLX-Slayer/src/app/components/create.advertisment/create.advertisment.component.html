@@ -1,6 +1,11 @@
 <div class="container">
   <div class="row">
     <form #detailsFormData='ngForm' (ngSubmit)="onCreateAdvert(detailsFormData)">
+      <div *ngIf="!detailsFormData.valid||noPersonalDetails">
+        <alert type="info">
+          <strong>Important!</strong> You need to input all fields.
+        </alert>
+      </div>
       <div class="form-group">
         <label for="heading">Heading:  *</label>
         <input type="text" id="heading" placeholder="Heading" name="heading" class="form-control" required (ngModel)="heading">
@@ -31,6 +36,9 @@
       </div>
       <br>
       <div class="form-group">
+        <alert type="info">
+          <strong>Heads up!</strong> Images are not required, but they help.
+        </alert>
         <div class="text-center">
           <img *ngIf="photoUrls" src="{{photoUrls[0]}}" class="rounded" alt="Picture One">
           <input #fileOne type="file" class="text-center center-block well well-sm" (change)="onSubmitPicture(fileOne.files[0])">
