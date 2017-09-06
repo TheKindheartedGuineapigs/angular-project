@@ -1,3 +1,5 @@
+import { AdvertismentService } from './services/advertisments.service';
+import { CreateAdvertismentComponent } from './components/create.advertisment/create.advertisment.component';
 import { ChatModule } from './chat/chat.module';
 import { ImgurService } from './services/imgur.service';
 import { UserProfileComponent } from './components/user.profile/user.profile.component';
@@ -23,6 +25,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SearchComponent } from '../app/home/search/search.component';
 import { DummyComponent } from './dummy/dummy.component';
 import { HttpModule } from '@angular/http';
+import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+import { AlertModule } from 'ngx-bootstrap/alert';
+
 
 @NgModule({
   declarations: [
@@ -30,7 +35,8 @@ import { HttpModule } from '@angular/http';
     NavigationComponent,
     SearchComponent,
     DummyComponent,
-    UserProfileComponent
+    UserProfileComponent,
+    CreateAdvertismentComponent
   ],
   imports: [
     BrowserModule,
@@ -44,12 +50,15 @@ import { HttpModule } from '@angular/http';
     ChatModule,
     HttpModule,
     TabsModule.forRoot(),
+    BsDropdownModule.forRoot(),
+    AlertModule.forRoot()
   ],
   exports: [NavigationComponent],
   providers: [
     ImgurService,
     AngularFireDatabase,
-    AuthGuardService
+    AuthGuardService,
+    AdvertismentService
   ],
   bootstrap: [AppComponent]
 })
