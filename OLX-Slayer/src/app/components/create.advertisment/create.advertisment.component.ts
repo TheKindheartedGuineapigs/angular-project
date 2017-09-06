@@ -58,9 +58,9 @@ export class CreateAdvertismentComponent {
       phoneNumber: formData.value.phoneNumber,
       username: formData.value.username
     };
-    console.log(advert);
-    // this.advertismentService.createAdvertisements(advert).subscribe(res => {
-    //   console.log(res);
-    // });
+
+    this.advertismentService.createAdvertisements(advert).subscribe(res => {
+      console.log(res);
+    });
   }
 }
