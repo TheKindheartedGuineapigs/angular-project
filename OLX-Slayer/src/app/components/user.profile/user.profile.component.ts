@@ -45,7 +45,6 @@ export class UserProfileComponent {
 
     onSubmitResetPassword(formData) {
         if (formData.valid) {
-          console.log('Submission worked');
           this.userService.resetPasswor(formData.value.email)
             .then( (response) => {
               this.message = 'Check you email!';

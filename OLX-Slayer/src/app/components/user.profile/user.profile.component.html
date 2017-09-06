@@ -61,7 +61,9 @@
             <tab heading="Change Password">
                 <div class="container">
                     <div *ngIf="message">
-                        {{ message }}
+                        <alert type="info">
+                            <strong>{{ message }}</strong>
+                        </alert>
                     </div>
                     <h2>Reset Password</h2>
                     <form #formData='ngForm' (ngSubmit)="onSubmitResetPassword(formData)">
