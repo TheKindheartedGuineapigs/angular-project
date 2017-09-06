@@ -1,3 +1,4 @@
+import { CreateAdvertismentComponent } from './../components/create.advertisment/create.advertisment.component';
 import { AuthGuardService } from './../services/auth.guard.service';
 import { UserProfileComponent } from './../components/user.profile/user.profile.component';
 import { LoginComponent } from './../auth/components/login/login.component';
@@ -9,6 +10,7 @@ import { Routes, RouterModule } from '@angular/router';
 const appRoutes: Routes = [
   { path: 'advertisements', component: DummyComponent },
   { path: 'profile', component: UserProfileComponent, canActivate: [AuthGuardService] },
+  { path: 'advertisment', component: CreateAdvertismentComponent, canActivate: [AuthGuardService] },
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignUpComponent }
 ];
