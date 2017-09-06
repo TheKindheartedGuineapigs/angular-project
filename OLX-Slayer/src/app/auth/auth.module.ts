@@ -6,7 +6,7 @@ import { LoginComponent } from './components/login/login.component';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { ModalModule } from 'ngx-bootstrap';
+import { AlertModule } from 'ngx-bootstrap/alert';
 
 @NgModule({
     declarations: [
@@ -16,7 +16,7 @@ import { ModalModule } from 'ngx-bootstrap';
     imports: [
         FormsModule,
         CommonModule,
-        ModalModule.forRoot(),
+        AlertModule.forRoot()
     ],
     entryComponents: [
         SignUpComponent,
