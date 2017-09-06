@@ -9,8 +9,29 @@ import { Component } from '@angular/core';
 export class UserProfileComponent {
     private currentUser: firebase.User;
     private message: string;
+    private userPersonal = {
+        username: '',
+        firstName: '',
+        lastName: '',
+        phoneNumber: ''
+    };
+    private userAddress = {
+        addressOne: '',
+        addressTwo: '',
+        city: '',
+        country: ''
+    };
     constructor(private userService: UserService, private imgService: ImgurService) {
         this.currentUser = userService.getCurrentUser();
+        userService.getUserDetails(this.currentUser.uid).subscribe(details => {
+            if (details.details) {
+                this.userPersonal = details.details;
+            }
+
+            if (details.address) {
+                this.userAddress = details.address;
+            }
+        });
     }
 
     onSubmitPicture(file) {
@@ -21,26 +42,12 @@ export class UserProfileComponent {
             });
     }
 
-    onSubmitPersonalDetails(detailsFormData) {
-        const details = {
-            username: detailsFormData.value.username,
-            firstName: detailsFormData.value.firstName,
-            lastName: detailsFormData.value.lastName,
-            phoneNumber: detailsFormData.value.phoneNumber
-        };
-
-        this.userService.updatePersonalDetails(details, this.currentUser.uid);
+    onSubmitPersonalDetails() {
+        this.userService.updatePersonalDetails(this.userPersonal, this.currentUser.uid);
     }
 
-    onSubmitAddress(addressFormData) {
-        const address = {
-            addressOne: addressFormData.value.addressOne,
-            addressTwo: addressFormData.value.addressTwo,
-            city: addressFormData.value.city,
-            country: addressFormData.value.country
-        };
-
-        this.userService.updateAddress(address, this.currentUser.uid);
+    onSubmitAddress() {
+        this.userService.updateAddress(this.userAddress, this.currentUser.uid);
     }
 
     onSubmitResetPassword(formData) {

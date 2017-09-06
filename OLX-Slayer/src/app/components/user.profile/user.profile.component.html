@@ -5,22 +5,22 @@
     <div class="row">
         <tabset class="col-md-8 col-sm-8 col-xs-12">
             <tab heading="Personal Details">
-                <form #detailsFormData='ngForm' (ngSubmit)="onSubmitPersonalDetails(detailsFormData)">
+                <form (ngSubmit)="onSubmitPersonalDetails()">
                     <div class="form-group">
                         <label for="username">Username:</label>
-                        <input type="text" id="username" placeholder="username" name="username" class="form-control" (ngModel)="username">
+                        <input type="text" id="username" placeholder="change your username" name="username" class="form-control" [(ngModel)]="userPersonal.username">
                     </div>
                     <div class="form-group">
                         <label for="first-name">First Name:</label>
-                        <input type="text" id="first-name" placeholder="your first name" name="firstName" class="form-control" (ngModel)="firstName">
+                        <input type="text" id="first-name" placeholder="change your first name" name="firstName" class="form-control" [(ngModel)]="userPersonal.firstName">
                     </div>
                     <div class="form-group">
                         <label for="last-name">Last Name:</label>
-                        <input type="text" id="last-name" placeholder="your last name" name="lastName" class="form-control" (ngModel)="lastName">
+                        <input type="text" id="last-name" placeholder="change your last name" name="lastName" class="form-control" [(ngModel)]="userPersonal.lastName">
                     </div>
                     <div class="form-group">
                         <label for="phone">Phone number:</label>
-                        <input type="text" id="phone" placeholder="your phone nuber" name="phoneNumber" class="form-control" (ngModel)="phoneNumber">
+                        <input type="text" id="phone" placeholder="change your phone nuber" name="phoneNumber" class="form-control" [(ngModel)]="userPersonal.phoneNumber">
                     </div>
                     <div>
                         <button class="btn btn-primary">Update</button>
@@ -28,22 +28,22 @@
                 </form>
             </tab>
             <tab heading="Address">
-                <form #adressFormData='ngForm' (ngSubmit)="onSubmitAddress(adressFormData)">
+                <form (ngSubmit)="onSubmitAddress()">
                     <div class="form-group">
                         <label for="address-one">Address 1:</label>
-                        <input type="text" id="address-one" placeholder="First address" name="addressOne" class="form-control" (ngModel)="addressOne">
+                        <input type="text" id="address-one" placeholder="First address" name="addressOne" class="form-control" [(ngModel)]="userAddress.addressOne">
                     </div>
                     <div class="form-group">
                         <label for="address-two">Address 2:</label>
-                        <input type="text" id="address-two" placeholder="Second address" name="addressTwo" class="form-control" (ngModel)="addressTwo">
+                        <input type="text" id="address-two" placeholder="Second address" name="addressTwo" class="form-control" [(ngModel)]="userAddress.addressTwo">
                     </div>
                     <div class="form-group">
                         <label for="city">City:</label>
-                        <input type="text" id="city" placeholder="City" name="city" class="form-control" (ngModel)="city">
+                        <input type="text" id="city" placeholder="City" name="city" class="form-control" [(ngModel)]="userAddress.city">
                     </div>
                     <div class="form-group">
                         <label for="country">Country:</label>
-                        <input type="text" id="country" placeholder="Country" name="country" class="form-control" (ngModel)="country">
+                        <input type="text" id="country" placeholder="Country" name="country" class="form-control" [(ngModel)]="userAddress.country">
                     </div>
                     <div>
                         <button class="btn btn-primary">Update</button>
@@ -60,12 +60,12 @@
             </tab>
             <tab heading="Change Password">
                 <div class="container">
+                    <h2>Reset Password</h2>
                     <div *ngIf="message">
                         <alert type="info">
                             <strong>{{ message }}</strong>
                         </alert>
                     </div>
-                    <h2>Reset Password</h2>
                     <form #formData='ngForm' (ngSubmit)="onSubmitResetPassword(formData)">
                         <div class="form-group">
                             <div class="small-12 columns">
