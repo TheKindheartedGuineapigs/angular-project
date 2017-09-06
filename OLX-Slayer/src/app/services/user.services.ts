@@ -7,6 +7,7 @@ import * as firebase from 'firebase';
 @Injectable()
 export class UserService {
     private user: firebase.User;
+    private userDetails;
     constructor(private afAuth: AngularFireAuth, private db: AngularFireDatabase) {
         afAuth.authState.subscribe(user => {
             this.user = user;
@@ -14,6 +15,10 @@ export class UserService {
     }
     getCurrentUser(): firebase.User {
         return this.user;
+    }
+
+    getCurrentUserId(): string {
+        return this.user.uid;
     }
     signup(formData): firebase.Promise<any> {
         return this.afAuth.auth.createUserWithEmailAndPassword(formData.value.email, formData.value.password);
@@ -37,11 +42,7 @@ export class UserService {
     }
 
     getUserDetails(uid): FirebaseObjectObservable<any> {
-        return this.db.object('/usersDetails/' + uid + '/details');
-    }
-
-    getUserAddress(uid): FirebaseObjectObservable<any> {
-        return this.db.object('/usersDetails/' + uid + '/address');
+        return this.db.object('/usersDetails/' + uid);
     }
 
     updateUserProfile(name: string, photoUrl: string) {
