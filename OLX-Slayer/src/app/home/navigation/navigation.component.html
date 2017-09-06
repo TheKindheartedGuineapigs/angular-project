@@ -1,4 +1,4 @@
-  <!-- <md-toolbar color="primary">
+<!-- <md-toolbar color="primary">
     <span>Navbar</span>
     <md-toolbar-row></md-toolbar-row>    
     <md-toolbar-row></md-toolbar-row>
@@ -14,8 +14,11 @@
 			<li><a [routerLink]="['/chats']">Chats</a></li>
 		</ul>
 		<ul class="right">
-			<li><a (click)="openSignUpModal()">Register</a></li>
-			<li><a (click)="openLogInModal()">Login</a></li>
+			<li><a *ngIf="isLogedIn === false" [routerLink]="['/signup']">Register</a></li>
+			<li><a *ngIf="isLogedIn === false" [routerLink]="['/login']">Login</a></li>
+			<li><a *ngIf="isLogedIn === true" [routerLink]="['/profile']">Profile</a></li>
+			<li><a *ngIf="isLogedIn === true" (click)="signOut()">Sign Out</a></li>
+
 		</ul>
 	</div>
 </nav>

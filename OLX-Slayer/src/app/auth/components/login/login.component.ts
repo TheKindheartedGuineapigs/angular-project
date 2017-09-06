@@ -1,23 +1,24 @@
 import { Router } from '@angular/router';
 import { UserService } from './../../../services/user.services';
 import { Component } from '@angular/core';
-import { BsModalRef } from 'ngx-bootstrap/modal/modal-options.class';
 
 @Component({
+    selector: 'app-login',
     templateUrl: './login.component.html',
     styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
     public error: any;
 
-    constructor(private userService: UserService, private router: Router, public bsModalRef: BsModalRef) { }
+    constructor(private userService: UserService, private router: Router) {}
+
     onSubmit(formData) {
         if (formData.valid) {
             this.userService.login(formData)
                 .then(
-                (success) => {
-                    console.log(success);
-                    // this.router.navigate(['/profile']); TODO: profile component
+                () => {
+                    console.log('success');
+                    this.router.navigate(['/profile']);
                 }).catch(
                 (err) => {
                     console.log(err);

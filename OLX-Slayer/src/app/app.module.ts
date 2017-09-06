@@ -1,5 +1,6 @@
-import { HttpModule } from '@angular/http';
 import { ChatModule } from './chat/chat.module';
+import { ImgurService } from './services/imgur.service';
+import { UserProfileComponent } from './components/user.profile/user.profile.component';
 import { SignUpComponent } from './auth/components/signup/signup.component';
 import { FormsModule } from '@angular/forms';
 import { UserService } from './services/user.services';
@@ -10,22 +11,26 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuth } from 'angularfire2/auth';
+import { AngularFireDatabase } from 'angularfire2/database';
+import { AuthGuardService } from './services/auth.guard.service';
 
 import { firebaseConfig } from '../environments/firebase.config';
 import { AppComponent } from './app.component';
-
+import { TabsModule } from 'ngx-bootstrap';
 import { NavigationComponent } from '../app/home/navigation/navigation.component';
 import { MdToolbarModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SearchComponent } from '../app/home/search/search.component';
 import { DummyComponent } from './dummy/dummy.component';
+import { HttpModule } from '@angular/http';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavigationComponent,
     SearchComponent,
-    DummyComponent
+    DummyComponent,
+    UserProfileComponent
   ],
   imports: [
     BrowserModule,
@@ -37,10 +42,15 @@ import { DummyComponent } from './dummy/dummy.component';
     BrowserAnimationsModule,
     FormsModule,
     ChatModule,
-    HttpModule
+    HttpModule,
+    TabsModule.forRoot(),
   ],
   exports: [NavigationComponent],
-  providers: [],
+  providers: [
+    ImgurService,
+    AngularFireDatabase,
+    AuthGuardService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
