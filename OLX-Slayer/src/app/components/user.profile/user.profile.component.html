@@ -54,7 +54,7 @@
                 <div class="text-center">
                     <img src="{{currentUser.photoURL}}" class="rounded" alt="avatar">
                     <h6>Upload a different photo...</h6>
-                    <input #file type="file" class="text-center center-block well well-sm">
+                    <input #file type="file" accept="image/*" class="text-center center-block well well-sm">
                     <button class="btn btn-success" (click)="onSubmitPicture(file.files[0])">Submit</button>
                 </div>
             </tab>

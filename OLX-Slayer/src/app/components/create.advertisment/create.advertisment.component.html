@@ -41,15 +41,15 @@
         </alert>
         <div class="text-center">
           <img *ngIf="photoUrls" src="{{photoUrls[0]}}" class="rounded" alt="Picture One">
-          <input #fileOne type="file" class="text-center center-block well well-sm" (change)="onSubmitPicture(fileOne.files[0])">
+          <input #fileOne type="file" accept="image/*" class="text-center center-block well well-sm" (change)="onSubmitPicture(fileOne.files[0])">
         </div>
         <div class="text-center">
           <img *ngIf="photoUrls" src="{{photoUrls[1]}}" class="rounded" alt="Picture Two">
-          <input #fileTwo type="file" class="text-center center-block well well-sm" (change)="onSubmitPicture(fileTwo.files[0])">
+          <input #fileTwo type="file" accept="image/*" class="text-center center-block well well-sm" (change)="onSubmitPicture(fileTwo.files[0])">
         </div>
         <div class="text-center">
           <img *ngIf="photoUrls" src="{{photoUrls[2]}}" class="rounded" alt="Picture Three">
-          <input #fileThree type="file" class="text-center center-block well well-sm" (change)="onSubmitPicture(fileThree.files[0])">
+          <input #fileThree type="file" accept="image/*" class="text-center center-block well well-sm" (change)="onSubmitPicture(fileThree.files[0])">
         </div>
       </div>
       <div *ngIf="noPersonalDetails">
