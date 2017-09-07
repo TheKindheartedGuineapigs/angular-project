@@ -1,3 +1,5 @@
+import { Advertisement } from './../../models/advertisement';
+import { UserProfile } from './../../models/userProfile';
 import { FirebaseObjectObservable } from 'angularfire2/database';
 import { UserService } from './../../services/user.services';
 import { AdvertismentService } from './../../services/advertisments.service';
@@ -17,14 +19,13 @@ export class CreateAdvertismentComponent {
     'Home', 'Animals', 'Services'];
   private category: string;
   private photoUrls = [];
-  private userDetails = {
-    address: '',
-    details: ''
-  };
+  private userProfile: UserProfile;
+
   constructor(private igmService: ImgurService, private advertismentService: AdvertismentService, private userService: UserService) {
+    this.userProfile = new UserProfile('', '', '', '', '', '', '', '');
     userService.getUserDetails(userService.getCurrentUserId()).subscribe(details => {
-      if (details.address && details.details) {
-        this.userDetails = details;
+      if (details) {
+        this.userProfile = details;
         this.noPersonalDetails = false;
       } else {
         this.noPersonalDetails = true;
@@ -45,21 +46,10 @@ export class CreateAdvertismentComponent {
   }
 
   onCreateAdvert(formData) {
-    const advert = {
-      createdBy: this.userService.getCurrentUserId(),
-      heading: formData.value.heading,
-      category: this.category,
-      description: formData.value.description,
-      photoOne: this.photoUrls[0],
-      photoTwo: this.photoUrls[1],
-      photoThree: this.photoUrls[2],
-      city: formData.value.city,
-      address: formData.value.address,
-      phoneNumber: formData.value.phoneNumber,
-      username: formData.value.username
-    };
-
-    this.advertismentService.createAdvertisements(advert).subscribe(res => {
+    const advertisement = new Advertisement(formData.value.heading, this.category, formData.value.description, this.photoUrls,
+      this.userService.getCurrentUserId(), this.userProfile.country, this.userProfile.city,
+      this.userProfile.addressOne, this.userProfile.username);
+    this.advertismentService.createAdvertisements(advertisement).subscribe(res => {
       console.log(res);
     });
   }
