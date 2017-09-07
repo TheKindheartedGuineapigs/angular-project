@@ -3,8 +3,8 @@ import { Injectable } from '@angular/core';
 import { Http, RequestOptions, RequestOptionsArgs } from '@angular/http';
 
 class Options implements RequestOptionsArgs {
-    url;
-    method;
+    url: string;
+    method: string;
     headers;
     body;
 
@@ -25,10 +25,8 @@ export class ImgurService {
     constructor(private http: Http) {}
 
     uploadImg(img): Observable<any> {
-        const headers = new Headers({'Authorization': 'Client-ID ' + this.clientId});
+        const options = new Options(this.uploadUrl, 'POST', { 'Authorization': 'Client-ID ' + this.clientId}, img);
 
-        const test = new Options(this.uploadUrl, 'POST', { 'Authorization': 'Client-ID ' + this.clientId}, img);
-
-        return this.http.post(this.uploadUrl, img, test);
+        return this.http.post(this.uploadUrl, img, options);
     }
 }
