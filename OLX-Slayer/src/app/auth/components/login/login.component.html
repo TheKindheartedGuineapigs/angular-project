@@ -3,7 +3,9 @@
     <div class="span4 offset4 well">
       <legend>Please Sign In</legend>
       <div *ngIf="error" class="alert alert-error">
-        <p>{{error}}</p>
+        <alert type="danger">
+          <strong>{{error}}</strong>
+        </alert>
       </div>
       <form #formData='ngForm' (ngSubmit)="onSubmit(formData)">
         <div class="form-group">

@@ -1,5 +1,5 @@
-import { Router } from '@angular/router';
 import { UserService } from './../../../services/user.services';
+import { Router } from '@angular/router';
 import { Component } from '@angular/core';
 
 @Component({
@@ -10,7 +10,7 @@ import { Component } from '@angular/core';
 export class LoginComponent {
     public error: any;
 
-    constructor(private userService: UserService, private router: Router) {}
+    constructor(private userService: UserService, private router: Router) { }
 
     onSubmit(formData) {
         if (formData.valid) {

@@ -5,22 +5,22 @@
     <div class="row">
         <tabset class="col-md-8 col-sm-8 col-xs-12">
             <tab heading="Personal Details">
-                <form #detailsFormData='ngForm' (ngSubmit)="onSubmitPersonalDetails(detailsFormData)">
+                <form (ngSubmit)="onSubmitUserDetails()">
                     <div class="form-group">
                         <label for="username">Username:</label>
-                        <input type="text" id="username" placeholder="username" name="username" class="form-control" (ngModel)="username">
+                        <input type="text" id="username" placeholder="change your username" name="username" class="form-control" [(ngModel)]="userProfile.username">
                     </div>
                     <div class="form-group">
                         <label for="first-name">First Name:</label>
-                        <input type="text" id="first-name" placeholder="your first name" name="firstName" class="form-control" (ngModel)="firstName">
+                        <input type="text" id="first-name" placeholder="change your first name" name="firstName" class="form-control" [(ngModel)]="userProfile.firstName">
                     </div>
                     <div class="form-group">
                         <label for="last-name">Last Name:</label>
-                        <input type="text" id="last-name" placeholder="your last name" name="lastName" class="form-control" (ngModel)="lastName">
+                        <input type="text" id="last-name" placeholder="change your last name" name="lastName" class="form-control" [(ngModel)]="userProfile.lastName">
                     </div>
                     <div class="form-group">
                         <label for="phone">Phone number:</label>
-                        <input type="text" id="phone" placeholder="your phone nuber" name="phoneNumber" class="form-control" (ngModel)="phoneNumber">
+                        <input type="text" id="phone" placeholder="change your phone nuber" name="phoneNumber" class="form-control" [(ngModel)]="userProfile.phoneNumber">
                     </div>
                     <div>
                         <button class="btn btn-primary">Update</button>
@@ -28,22 +28,22 @@
                 </form>
             </tab>
             <tab heading="Address">
-                <form #adressFormData='ngForm' (ngSubmit)="onSubmitAddress(adressFormData)">
+                <form (ngSubmit)="onSubmitUserDetails()">
                     <div class="form-group">
                         <label for="address-one">Address 1:</label>
-                        <input type="text" id="address-one" placeholder="First address" name="addressOne" class="form-control" (ngModel)="addressOne">
+                        <input type="text" id="address-one" placeholder="First address" name="addressOne" class="form-control" [(ngModel)]="userProfile.addressOne">
                     </div>
                     <div class="form-group">
                         <label for="address-two">Address 2:</label>
-                        <input type="text" id="address-two" placeholder="Second address" name="addressTwo" class="form-control" (ngModel)="addressTwo">
+                        <input type="text" id="address-two" placeholder="Second address" name="addressTwo" class="form-control" [(ngModel)]="userProfile.addressTwo">
                     </div>
                     <div class="form-group">
                         <label for="city">City:</label>
-                        <input type="text" id="city" placeholder="City" name="city" class="form-control" (ngModel)="city">
+                        <input type="text" id="city" placeholder="City" name="city" class="form-control" [(ngModel)]="userProfile.city">
                     </div>
                     <div class="form-group">
                         <label for="country">Country:</label>
-                        <input type="text" id="country" placeholder="Country" name="country" class="form-control" (ngModel)="country">
+                        <input type="text" id="country" placeholder="Country" name="country" class="form-control" [(ngModel)]="userProfile.country">
                     </div>
                     <div>
                         <button class="btn btn-primary">Update</button>
@@ -54,16 +54,18 @@
                 <div class="text-center">
                     <img src="{{currentUser.photoURL}}" class="rounded" alt="avatar">
                     <h6>Upload a different photo...</h6>
-                    <input #file type="file" class="text-center center-block well well-sm">
+                    <input #file type="file" accept="image/*" class="text-center center-block well well-sm">
                     <button class="btn btn-success" (click)="onSubmitPicture(file.files[0])">Submit</button>
                 </div>
             </tab>
             <tab heading="Change Password">
                 <div class="container">
-                    <div *ngIf="message">
-                        {{ message }}
-                    </div>
                     <h2>Reset Password</h2>
+                    <div *ngIf="message">
+                        <alert type="info">
+                            <strong>{{ message }}</strong>
+                        </alert>
+                    </div>
                     <form #formData='ngForm' (ngSubmit)="onSubmitResetPassword(formData)">
                         <div class="form-group">
                             <div class="small-12 columns">

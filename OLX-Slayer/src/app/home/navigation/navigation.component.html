@@ -16,6 +16,7 @@
 		<ul class="right">
 			<li><a *ngIf="isLogedIn === false" [routerLink]="['/signup']">Register</a></li>
 			<li><a *ngIf="isLogedIn === false" [routerLink]="['/login']">Login</a></li>
+			<li><a *ngIf="isLogedIn === true" [routerLink]="['/advertisment']">+ Advertisment</a></li>
 			<li><a *ngIf="isLogedIn === true" [routerLink]="['/profile']">Profile</a></li>
 			<li><a *ngIf="isLogedIn === true" (click)="signOut()">Sign Out</a></li>
 

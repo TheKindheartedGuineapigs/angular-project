@@ -1,3 +1,4 @@
+import { UserProfile } from './../../models/userProfile';
 import { ImgurService } from './../../services/imgur.service';
 import { UserService } from './../../services/user.services';
 import { Component } from '@angular/core';
@@ -9,8 +10,16 @@ import { Component } from '@angular/core';
 export class UserProfileComponent {
     private currentUser: firebase.User;
     private message: string;
+    private userProfile: UserProfile;
+
     constructor(private userService: UserService, private imgService: ImgurService) {
+        this.userProfile = new UserProfile('', '', '', '', '', '', '', '');
         this.currentUser = userService.getCurrentUser();
+        userService.getUserDetails(this.currentUser.uid).subscribe(details => {
+            if (details) {
+                this.userProfile = details;
+            }
+        });
     }
 
     onSubmitPicture(file) {
@@ -21,31 +30,8 @@ export class UserProfileComponent {
             });
     }
 
-    onSubmitPersonalDetails(detailsFormData) {
-        const details = {
-            username: detailsFormData.value.username,
-            firstName: detailsFormData.value.firstName,
-            lastName: detailsFormData.value.lastName,
-            phoneNumber: detailsFormData.value.phoneNumber
-        };
-
-        this.userService.updatePersonalDetails(details, this.currentUser.uid);
-    }
-
-    onSubmitAddress(addressFormData) {
-        const address = {
-            addressOne: addressFormData.value.addressOne,
-            addressTwo: addressFormData.value.addressTwo,
-            city: addressFormData.value.city,
-            country: addressFormData.value.country
-        };
-
-        this.userService.updateAddress(address, this.currentUser.uid);
-    }
-
     onSubmitResetPassword(formData) {
         if (formData.valid) {
-          console.log('Submission worked');
           this.userService.resetPasswor(formData.value.email)
             .then( (response) => {
               this.message = 'Check you email!';
@@ -56,5 +42,9 @@ export class UserProfileComponent {
               console.log(error);
             });
         }
+    }
+
+    onSubmitUserDetails() {
+        this.userService.updatePersonalDetails(this.userProfile, this.currentUser.uid);
     }
 }

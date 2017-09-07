@@ -1,3 +1,4 @@
+import { UserProfile } from './../models/userProfile';
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { AngularFireDatabase, FirebaseObjectObservable } from 'angularfire2/database';
@@ -7,14 +8,21 @@ import * as firebase from 'firebase';
 @Injectable()
 export class UserService {
     private user: firebase.User;
+
     constructor(private afAuth: AngularFireAuth, private db: AngularFireDatabase) {
         afAuth.authState.subscribe(user => {
             this.user = user;
         });
     }
+
     getCurrentUser(): firebase.User {
         return this.user;
     }
+
+    getCurrentUserId(): string {
+        return this.user.uid;
+    }
+
     signup(formData): firebase.Promise<any> {
         return this.afAuth.auth.createUserWithEmailAndPassword(formData.value.email, formData.value.password);
     }
@@ -31,17 +39,12 @@ export class UserService {
                 console.log(error);
             });
     }
-
-    resetPasswor(email): firebase.Promise<any> {
+    resetPasswor(email: string): firebase.Promise<any> {
         return this.afAuth.auth.sendPasswordResetEmail(email);
     }
 
-    getUserDetails(uid): FirebaseObjectObservable<any> {
-        return this.db.object('/usersDetails/' + uid + '/details');
-    }
-
-    getUserAddress(uid): FirebaseObjectObservable<any> {
-        return this.db.object('/usersDetails/' + uid + '/address');
+    getUserDetails(uid: string): FirebaseObjectObservable<any> {
+        return this.db.object('/usersDetails/' + uid);
     }
 
     updateUserProfile(name: string, photoUrl: string) {
@@ -58,17 +61,8 @@ export class UserService {
             });
     }
 
-    updateAddress(address, uid) {
-        this.db.object('/usersDetails/' + uid + '/address').set(address)
-            .then(() => {
-                console.log('address updated');
-            }).catch(err => {
-                console.log(err);
-            });
-    }
-
-    updatePersonalDetails(details, uid) {
-        this.db.object('/usersDetails/' + uid + '/details').set(details)
+    updatePersonalDetails(details: UserProfile, uid: string) {
+        this.db.object('/usersDetails/' + uid).set(details)
             .then(() => {
                 console.log('details updated');
             }).catch(err => {
