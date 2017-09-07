@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
   templateUrl: './navigation.component.html',
   styleUrls: ['./navigation.component.css']
 })
-export class NavigationComponent{
+export class NavigationComponent {
   private isLogedIn: boolean;
   constructor(private auth: AngularFireAuth) {
     this.auth.authState.subscribe(user => {
