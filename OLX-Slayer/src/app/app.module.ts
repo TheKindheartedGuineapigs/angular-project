@@ -1,5 +1,5 @@
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
-import { UserProfilesModule } from './user.profile/user.profiles.module';
+import { UserProfilesModule } from './profiles/user.profiles.module';
 import { AdvertismentService } from './services/advertisments.service';
 import { CreateAdvertismentComponent } from './components/create.advertisment/create.advertisment.component';
 import { ChatModule } from './chat/chat.module';
