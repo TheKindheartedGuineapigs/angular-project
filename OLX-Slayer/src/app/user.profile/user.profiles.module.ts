@@ -1,4 +1,3 @@
-import { TestComponent } from './test.component/profile.component';
 import { CommonModule } from '@angular/common';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { ImgurService } from './../services/imgur.service';
@@ -12,13 +11,11 @@ import { TabsModule } from 'ngx-bootstrap';
 
 const appRoutes: Routes = [
     { path: 'profile', component: UserProfileComponent, canActivate: [AuthGuardService] },
-    { path: 'test', component: TestComponent, canActivate: [AuthGuardService] }
   ];
 
 @NgModule({
     declarations: [
         UserProfileComponent,
-        TestComponent
       ],
       imports: [
           RouterModule.forRoot(appRoutes),
