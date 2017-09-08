@@ -1,7 +1,7 @@
 import { UserProfile } from './../../models/userProfile';
 import { ImgurService } from './../../services/imgur.service';
 import { UserService } from './../../services/user.services';
-import { Component } from '@angular/core';
+import { Component, OnChanges} from '@angular/core';
 
 @Component({
     selector: 'app-user-profile',
@@ -13,10 +13,10 @@ export class UserProfileComponent {
     private userProfile: UserProfile;
 
     constructor(private userService: UserService, private imgService: ImgurService) {
-        this.userProfile = new UserProfile('', '', '', '', '', '', '', '');
+        this.userProfile = new UserProfile();
         this.currentUser = userService.getCurrentUser();
         userService.getUserDetails(this.currentUser.uid).subscribe(details => {
-            if (details) {
+            if (details && details.$value !== null) {
                 this.userProfile = details;
             }
         });

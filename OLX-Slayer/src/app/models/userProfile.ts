@@ -8,14 +8,14 @@ export class UserProfile {
     public city: string;
     public country: string;
 
-    constructor(addressOne, addressTwo, city, country, username, firstName, lastName, phoneNumber) {
-        this.addressOne = addressOne;
-        this.addressTwo = addressTwo;
-        this.city = city;
-        this.country = country;
-        this.username = username;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.phoneNumber = phoneNumber;
+    constructor() {
+        this.addressOne = '';
+        this.addressTwo = '';
+        this.city = '';
+        this.country = '';
+        this.username = '';
+        this.firstName = '';
+        this.lastName = '';
+        this.phoneNumber = '';
     }
 }

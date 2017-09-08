@@ -22,11 +22,14 @@ export class CreateAdvertismentComponent {
   private userProfile: UserProfile;
 
   constructor(private igmService: ImgurService, private advertismentService: AdvertismentService, private userService: UserService) {
-    this.userProfile = new UserProfile('', '', '', '', '', '', '', '');
+    this.userProfile = new UserProfile();
     userService.getUserDetails(userService.getCurrentUserId()).subscribe(details => {
-      if (details) {
+      if (details.username && details.phoneNumber && details.addressOne && details.city) {
         this.userProfile = details;
         this.noPersonalDetails = false;
+      } else if (details.username || details.phoneNumber || details.addressOne || details.city) {
+        this.userProfile = details;
+        this.noPersonalDetails = true;
       } else {
         this.noPersonalDetails = true;
       }
