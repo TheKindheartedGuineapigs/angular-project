@@ -26,7 +26,8 @@ export class UserProfileComponent {
         this.imgService.uploadImg(file)
             .map((res) => res.json())
             .subscribe(responce => {
-                this.userService.updateUserProfile(this.currentUser.displayName, responce.data.link);
+                this.userProfile.photoUrl = responce.data.link;
+                this.userService.updatePersonalDetails(this.userProfile, this.currentUser.uid);
             });
     }
 

@@ -3,6 +3,7 @@ export class UserProfile {
     public firstName: string;
     public lastName: string;
     public phoneNumber: string;
+    public photoUrl: string;
     public addressOne: string;
     public addressTwo: string;
     public city: string;
@@ -17,5 +18,6 @@ export class UserProfile {
         this.firstName = '';
         this.lastName = '';
         this.phoneNumber = '';
+        this.photoUrl = '';
     }
 }

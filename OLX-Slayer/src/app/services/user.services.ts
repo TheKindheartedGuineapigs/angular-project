@@ -39,20 +39,6 @@ export class UserService {
         return this.db.object('/usersDetails/' + uid);
     }
 
-    updateUserProfile(name: string, photoUrl: string) {
-        const profile = {
-            displayName: name,
-            photoURL: photoUrl
-        };
-
-        this.user.updateProfile(profile)
-            .then(() => {
-                console.log('success, Img uploaded.');
-            }).catch(err => {
-                console.log(err);
-            });
-    }
-
     updatePersonalDetails(details, uid: string) {
         this.db.object('/usersDetails/' + uid).set(details)
             .then(() => {
