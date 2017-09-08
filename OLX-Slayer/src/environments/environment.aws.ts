@@ -5,9 +5,9 @@
 
 import { config } from '../app/config/api.config';
 
-console.log('Running with local node-API');
+console.log('Running with AWS node-API');
 
 export const environment = {
   production: false,
-  apiConfig: config.local
+  apiConfig: config.aws
 };

@@ -29,10 +29,14 @@ export class ChatroomComponent implements OnInit {
 
   private  loadChat(user1, user2) {
     return this.chatService.loadChat(user1, user2)
-      .map(res => res.json())
-      .subscribe((res) => {
+    .map(res => res.json())
+    .subscribe((res) => {
+      if (Array.isArray(res.result)) {
+        this.chat = res.result[0];
+      } else {
         this.chat = res.result;
-        this.isDataLoaded = true;
-      });
+      }
+      this.isDataLoaded = true;
+    });
   }
 }
