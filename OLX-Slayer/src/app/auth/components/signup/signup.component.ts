@@ -8,8 +8,9 @@ import { Router } from '@angular/router';
   styleUrls: ['./signup.component.css']
 })
 export class SignUpComponent {
-  public error: any;
-  constructor(private userService: UserService, private router: Router) {  }
+  public error: string;
+
+  constructor(private userService: UserService, private router: Router) {}
 
   onSubmit(formData) {
     if (formData.valid) {
@@ -21,7 +22,7 @@ export class SignUpComponent {
       }).catch(
         (err) => {
         console.log(err);
-        this.error = err;
+        this.error = err.message;
       });
     } else {
       this.error = 'Your form is invalid';

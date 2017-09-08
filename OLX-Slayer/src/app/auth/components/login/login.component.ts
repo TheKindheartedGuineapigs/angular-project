@@ -1,5 +1,5 @@
 import { UserService } from './../../../services/user.services';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { Component } from '@angular/core';
 
 @Component({
@@ -8,9 +8,9 @@ import { Component } from '@angular/core';
     styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
-    public error: any;
+    public error: string;
 
-    constructor(private userService: UserService, private router: Router) { }
+    constructor(private userService: UserService, private router: Router, private route: ActivatedRoute) {}
 
     onSubmit(formData) {
         if (formData.valid) {
@@ -22,7 +22,7 @@ export class LoginComponent {
                 }).catch(
                 (err) => {
                     console.log(err);
-                    this.error = err;
+                    this.error = err.message;
                 });
         } else {
             this.error = 'Your form is invalid';

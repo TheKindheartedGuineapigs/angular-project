@@ -11,7 +11,7 @@ import { AlertModule } from 'ngx-bootstrap/alert';
 
 const appRoutes: Routes = [
     { path: 'login', component: LoginComponent },
-    { path: 'signup', component: SignUpComponent }
+    { path: 'signup', component: SignUpComponent },
   ];
 
 @NgModule({
