@@ -19,10 +19,10 @@ import { AuthGuardService } from './services/auth.guard.service';
 
 import { firebaseConfig } from '../environments/firebase.config';
 import { AppComponent } from './app.component';
-import { NavigationComponent } from '../app/home/navigation/navigation.component';
+import { NavigationComponent } from './components/shared/navigation/navigation.component';
 import { MdToolbarModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { SearchComponent } from '../app/home/search/search.component';
+import { SearchComponent } from './components/shared/search/search.component';
 import { DummyComponent } from './dummy/dummy.component';
 import { HttpModule } from '@angular/http';
 import { AlertModule } from 'ngx-bootstrap/alert';
@@ -34,7 +34,7 @@ import { AlertModule } from 'ngx-bootstrap/alert';
     NavigationComponent,
     SearchComponent,
     DummyComponent,
-    CreateAdvertismentComponent
+    CreateAdvertismentComponent,
   ],
   imports: [
     BrowserModule,
@@ -56,7 +56,7 @@ import { AlertModule } from 'ngx-bootstrap/alert';
     ImgurService,
     AngularFireDatabase,
     AuthGuardService,
-    AdvertismentService,
+    AdvertismentService
   ],
   bootstrap: [AppComponent]
 })
