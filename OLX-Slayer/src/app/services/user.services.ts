@@ -31,14 +31,6 @@ export class UserService {
         return this.afAuth.auth.signInWithEmailAndPassword(formData.value.email, formData.value.password);
     }
 
-    logout() {
-        this.afAuth.auth.signOut()
-            .then(() => {
-                console.log('you are now loged out!');
-            }).catch(error => {
-                console.log(error);
-            });
-    }
     resetPasswor(email: string): firebase.Promise<any> {
         return this.afAuth.auth.sendPasswordResetEmail(email);
     }
@@ -61,7 +53,7 @@ export class UserService {
             });
     }
 
-    updatePersonalDetails(details: UserProfile, uid: string) {
+    updatePersonalDetails(details, uid: string) {
         this.db.object('/usersDetails/' + uid).set(details)
             .then(() => {
                 console.log('details updated');
