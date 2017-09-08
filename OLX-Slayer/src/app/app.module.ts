@@ -1,3 +1,4 @@
+import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { UserProfilesModule } from './user.profile/user.profiles.module';
 import { AdvertismentService } from './services/advertisments.service';
 import { CreateAdvertismentComponent } from './components/create.advertisment/create.advertisment.component';
@@ -47,6 +48,7 @@ import { AlertModule } from 'ngx-bootstrap/alert';
     ChatModule,
     HttpModule,
     AlertModule.forRoot(),
+    BsDropdownModule.forRoot(),
     UserProfilesModule
   ],
   exports: [NavigationComponent],

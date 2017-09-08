@@ -1,7 +1,7 @@
+import { TestComponent } from './test.component/profile.component';
 import { CommonModule } from '@angular/common';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { ImgurService } from './../services/imgur.service';
-import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { FormsModule } from '@angular/forms';
 import { AlertModule } from 'ngx-bootstrap/alert';
 import { AuthGuardService } from './../services/auth.guard.service';
@@ -12,11 +12,13 @@ import { TabsModule } from 'ngx-bootstrap';
 
 const appRoutes: Routes = [
     { path: 'profile', component: UserProfileComponent, canActivate: [AuthGuardService] },
+    { path: 'test', component: TestComponent, canActivate: [AuthGuardService] }
   ];
 
 @NgModule({
     declarations: [
-        UserProfileComponent
+        UserProfileComponent,
+        TestComponent
       ],
       imports: [
           RouterModule.forRoot(appRoutes),
@@ -24,7 +26,6 @@ const appRoutes: Routes = [
           FormsModule,
           CommonModule,
           TabsModule.forRoot(),
-          BsDropdownModule.forRoot(),
       ],
       exports: [],
       providers: [
