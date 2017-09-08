@@ -56,7 +56,7 @@ import { AlertModule } from 'ngx-bootstrap/alert';
     ImgurService,
     AngularFireDatabase,
     AuthGuardService,
-    AdvertismentService,
+    AdvertismentService
   ],
   bootstrap: [AppComponent]
 })
