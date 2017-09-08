@@ -1,3 +1,4 @@
+import { PublicProfileComponent } from './public.profile/public.profile.component';
 import { CommonModule } from '@angular/common';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { ImgurService } from './../services/imgur.service';
@@ -11,11 +12,13 @@ import { TabsModule } from 'ngx-bootstrap';
 
 const appRoutes: Routes = [
     { path: 'profile', component: UserProfileComponent, canActivate: [AuthGuardService] },
+    { path: 'publicprofile/:uid', component: PublicProfileComponent }
   ];
 
 @NgModule({
     declarations: [
         UserProfileComponent,
+        PublicProfileComponent
       ],
       imports: [
           RouterModule.forRoot(appRoutes),
