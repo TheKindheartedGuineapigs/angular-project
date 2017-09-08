@@ -1,5 +1,5 @@
 import { Router } from '@angular/router';
-import { UserService } from './../../services/user.services';
+import { UserService } from '../../../services/user.services';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { Component } from '@angular/core';
 
