@@ -3,7 +3,6 @@ import { AngularFireAuth } from 'angularfire2/auth';
 import { Injectable } from '@angular/core';
 
 @Injectable()
-// Not in use glitchy TODO:FIX
 
 export class AuthService {
     constructor(private afAuth: AngularFireAuth, private db: AngularFireDatabase) {
@@ -15,5 +14,9 @@ export class AuthService {
 
     login(formData): firebase.Promise<any> {
         return this.afAuth.auth.signInWithEmailAndPassword(formData.value.email, formData.value.password);
+    }
+
+    signOut(): firebase.Promise<any> {
+        return this.afAuth.auth.signOut();
     }
 }

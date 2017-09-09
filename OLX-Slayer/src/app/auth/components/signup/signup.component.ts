@@ -1,5 +1,5 @@
 import { AuthService } from './../../../services/auth.service';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -7,10 +7,19 @@ import { Router } from '@angular/router';
   templateUrl: './signup.component.html',
   styleUrls: ['./signup.component.css']
 })
-export class SignUpComponent {
+export class SignUpComponent implements OnInit {
   public error: string;
 
   constructor(private authService: AuthService, private router: Router) {}
+
+  ngOnInit() {
+    this.authService.signOut()
+      .then(() => {
+        console.log('you are now loged out!');
+      }).catch(error => {
+        console.log(error.message);
+      });
+  }
 
   onSubmit(formData) {
     if (formData.valid) {
