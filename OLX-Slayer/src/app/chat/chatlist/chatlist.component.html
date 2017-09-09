@@ -1,8 +1,11 @@
-<h2>
-  Chats of {{loggedUsername}}:
-</h2>
+<ng-container *ngIf="!isDataLoaded">
+  <h1>Loading chats...</h1>
+</ng-container>
 
 <ng-container *ngIf="isDataLoaded">
+  <h2>
+    Chats of {{loggedUsername}}:
+  </h2>
   <div class="row" *ngFor="let chat of chats">
     <div class="col md6 s12 m6">
       <div class="card red darken-1">
