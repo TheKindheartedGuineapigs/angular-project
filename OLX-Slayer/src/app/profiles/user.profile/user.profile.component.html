@@ -5,10 +5,17 @@
     <div class="row">
         <tabset class="col-md-8 col-sm-8 col-xs-12">
             <tab heading="Personal Details">
+                <br>
+                <div *ngIf="message">
+                    <alert type="warning">
+                        <strong>{{ message }}</strong>
+                    </alert>
+                </div>
                 <form (ngSubmit)="onSubmitUserDetails()">
                     <div class="form-group">
                         <label for="username">Username:</label>
                         <input type="text" id="username" placeholder="change your username" name="username" class="form-control" [(ngModel)]="userProfile.username">
+                        <a class="btn btn-primary" (click)="checkUsername(userProfile.username)">check Username!</a>
                     </div>
                     <div class="form-group">
                         <label for="first-name">First Name:</label>
@@ -23,7 +30,7 @@
                         <input type="text" id="phone" placeholder="change your phone nuber" name="phoneNumber" class="form-control" [(ngModel)]="userProfile.phoneNumber">
                     </div>
                     <div>
-                        <button class="btn btn-primary">Update</button>
+                        <button class="btn btn-primary" [disabled]="aveilable===false">Update</button>
                     </div>
                 </form>
             </tab>
@@ -46,7 +53,7 @@
                         <input type="text" id="country" placeholder="change your Country" name="country" class="form-control" [(ngModel)]="userProfile.country">
                     </div>
                     <div>
-                        <button class="btn btn-primary">Update</button>
+                        <button class="btn btn-primary" [disabled]="aveilable===false">Update</button>
                     </div>
                 </form>
             </tab>
