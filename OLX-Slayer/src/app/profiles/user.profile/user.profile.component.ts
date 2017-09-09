@@ -12,6 +12,8 @@ import { Component, OnChanges, OnInit } from '@angular/core';
 export class UserProfileComponent {
     private currentUser: firebase.User;
     private message: string;
+    private checkUsernameMessage: string;
+    private resetPasswordMessage: string;
     private aveilable: boolean;
     private userProfile: UserProfile;
 
@@ -22,8 +24,10 @@ export class UserProfileComponent {
         userService.getUserDetails(this.currentUser.uid).subscribe(details => {
             if (details && details.$value !== null) {
                 this.userProfile = details;
+                this.aveilable = true;
             } else {
                 this.userProfile.setAllFields('');
+                this.aveilable = false;
             }
         });
     }
@@ -32,7 +36,7 @@ export class UserProfileComponent {
         this.imgService.uploadImg(file)
             .map((res) => res.json())
             .subscribe(responce => {
-                this.userProfile.PhotoUrl = responce.data.link;
+                this.userProfile.photoUrl = responce.data.link;
                 this.userService.updatePersonalDetails(this.userProfile, this.currentUser.uid);
             });
     }
@@ -41,11 +45,11 @@ export class UserProfileComponent {
         if (formData.valid) {
           this.userService.resetPasswor(formData.value.email)
             .then( (response) => {
-              this.message = 'Check you email!';
+              this.resetPasswordMessage = 'Check you email!';
               console.log('Sent successfully');
             })
             .catch( (error) => {
-              this.message = error.message;
+              this.resetPasswordMessage = error.message;
               console.log(error);
             });
         }
@@ -55,14 +59,15 @@ export class UserProfileComponent {
         this.userService.availableUsername(username).subscribe(response => {
             if (response.length === 0) {
                 this.aveilable = true;
-                this.message = 'username is aveilable';
+                this.checkUsernameMessage = 'username is aveilable';
             } else {
                 this.aveilable = false;
-                this.message = 'username is taken';
+                this.checkUsernameMessage = 'username is taken';
             }
         });
     }
     onSubmitUserDetails() {
         this.userService.updatePersonalDetails(this.userProfile, this.currentUser.uid);
+        this.message = 'Successfully updated!';
     }
 }

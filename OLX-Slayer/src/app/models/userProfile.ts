@@ -1,13 +1,13 @@
 export class UserProfile {
-    private username: string;
-    private firstName: string;
-    private lastName: string;
-    private phoneNumber: string;
-    private photoUrl: string;
-    private addressOne: string;
-    private addressTwo: string;
-    private city: string;
-    private country: string;
+    public username: string;
+    public firstName: string;
+    public lastName: string;
+    public phoneNumber: string;
+    public photoUrl: string;
+    public addressOne: string;
+    public addressTwo: string;
+    public city: string;
+    public country: string;
 
     constructor() {
         this.addressOne = 'Loading ...';
@@ -19,78 +19,6 @@ export class UserProfile {
         this.lastName = 'Loading ...';
         this.phoneNumber = 'Loading ...';
         this.photoUrl = 'Loading ...';
-    }
-
-    set AddressOne (value: string) {
-        this.addressOne = value;
-    }
-
-    set AddressTwo (value: string) {
-        this.addressTwo = value;
-    }
-
-    set Country (value: string) {
-        this.country = value;
-    }
-
-    set City (value: string) {
-        this.city = value;
-    }
-
-    set Username (value: string) {
-        this.username = value;
-    }
-
-    set FirstName (value: string) {
-        this.firstName = value;
-    }
-
-    set LastName (value: string) {
-        this.lastName = value;
-    }
-
-    set PhoneNumber (value: string) {
-        this.phoneNumber = value;
-    }
-
-    set PhotoUrl (value: string) {
-        this.photoUrl = value;
-    }
-
-    get AddressOne () {
-        return this.addressOne;
-    }
-
-    get AddressTwo () {
-        return this.addressTwo;
-    }
-
-    get Country () {
-        return this.country;
-    }
-
-    get City () {
-        return this.city;
-    }
-
-    get Username () {
-        return this.username;
-    }
-
-    get FirstName () {
-        return this.firstName;
-    }
-
-    get LastName () {
-        return this.lastName;
-    }
-
-    get PhoneNumber () {
-        return this.phoneNumber;
-    }
-
-    get PhotoUrl () {
-        return this.photoUrl;
     }
 
     setAllFields(value: string) {

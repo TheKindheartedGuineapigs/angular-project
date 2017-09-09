@@ -6,16 +6,26 @@
         <tabset class="col-md-8 col-sm-8 col-xs-12">
             <tab heading="Personal Details">
                 <br>
-                <div *ngIf="message">
+                <div *ngIf="checkUsernameMessage">
                     <alert type="warning">
+                        <strong>{{ checkUsernameMessage }}</strong>
+                    </alert>
+                </div>
+                <div *ngIf="message">
+                    <alert type="success">
                         <strong>{{ message }}</strong>
                     </alert>
                 </div>
                 <form (ngSubmit)="onSubmitUserDetails()">
-                    <div class="form-group">
-                        <label for="username">Username:</label>
-                        <input type="text" id="username" placeholder="change your username" name="username" class="form-control" [(ngModel)]="userProfile.username">
-                        <a class="btn btn-primary" (click)="checkUsername(userProfile.username)">check Username!</a>
+                    <div>
+                        <div class="form-group">
+                            <label for="username">Username:</label>
+                            <input type="text" id="username" placeholder="change your username" name="username" class="form-control" [(ngModel)]="userProfile.username"
+                                [disabled]="aveilable===true">
+                            <div *ngIf="aveilable===false">
+                                <a class="btn btn-primary" (click)="checkUsername(userProfile.username)">check Username!</a>
+                            </div>
+                        </div>
                     </div>
                     <div class="form-group">
                         <label for="first-name">First Name:</label>
@@ -35,6 +45,12 @@
                 </form>
             </tab>
             <tab heading="Address">
+                <br>
+                <div *ngIf="message">
+                    <alert type="success">
+                        <strong>{{ message }}</strong>
+                    </alert>
+                </div>
                 <form (ngSubmit)="onSubmitUserDetails()">
                     <div class="form-group">
                         <label for="address-one">Address 1:</label>
@@ -68,9 +84,9 @@
             <tab heading="Change Password">
                 <div class="container">
                     <h2>Reset Password</h2>
-                    <div *ngIf="message">
+                    <div *ngIf="resetPasswordMessage">
                         <alert type="info">
-                            <strong>{{ message }}</strong>
+                            <strong>{{ resetPasswordMessage }}</strong>
                         </alert>
                     </div>
                     <form #formData='ngForm' (ngSubmit)="onSubmitResetPassword(formData)">
