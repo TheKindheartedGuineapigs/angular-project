@@ -56,8 +56,8 @@ export class CreateAdvertismentComponent {
 
   onCreateAdvert(formData) {
     const advertisement = new Advertisement(formData.value.heading, this.category, formData.value.description, this.photoUrls,
-      this.currentUser.uid, this.userProfile.country, this.userProfile.city,
-      this.userProfile.addressOne, this.userProfile.username);
+      this.currentUser.uid, this.userProfile.Country, this.userProfile.City,
+      this.userProfile.AddressOne, this.userProfile.Username);
     this.advertismentService.createAdvertisements(advertisement).subscribe(res => {
       console.log(res);
     });

@@ -20,6 +20,8 @@ export class UserProfileComponent {
         userService.getUserDetails(this.currentUser.uid).subscribe(details => {
             if (details && details.$value !== null) {
                 this.userProfile = details;
+            } else {
+                this.userProfile.setAllFields('');
             }
         });
     }
@@ -28,7 +30,7 @@ export class UserProfileComponent {
         this.imgService.uploadImg(file)
             .map((res) => res.json())
             .subscribe(responce => {
-                this.userProfile.photoUrl = responce.data.link;
+                this.userProfile.PhotoUrl = responce.data.link;
                 this.userService.updatePersonalDetails(this.userProfile, this.currentUser.uid);
             });
     }

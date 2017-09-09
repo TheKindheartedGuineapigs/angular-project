@@ -1,13 +1,13 @@
 export class Advertisement {
-    public heading: string;
-    public category: string;
-    public description: string;
-    public images: [string];
-    public createdBy: string;
-    public city: string;
-    public address: string;
-    public phoneNumber: string;
-    public username: string;
+    private heading: string;
+    private category: string;
+    private description: string;
+    private images: [string];
+    private createdBy: string;
+    private city: string;
+    private address: string;
+    private phoneNumber: string;
+    private username: string;
 
     constructor(heading, category, description, images, createdBy, city, address, phoneNumber, username) {
         this.address = address;
