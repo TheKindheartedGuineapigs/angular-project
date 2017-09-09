@@ -13,7 +13,6 @@ export class AuthGuardService implements CanActivate {
       return this.afAuth.authState
         .map((user) =>  {
           if (user === null) {
-            console.log('must be loged in to continue');
             this.router.navigate(['/login']);
             this.isLoggedIn = false;
           } else {

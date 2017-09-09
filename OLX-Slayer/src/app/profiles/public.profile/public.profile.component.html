@@ -8,7 +8,7 @@
             </div>
             <br>
             <div class="col-md-4 col-sm-6 col-xs-12">
-                <a class="btn btn-primary">Send Message </a>
+                <a class="btn btn-primary" [routerLink]="['/chats/' + (userProfile | async)?.username]">Send Message </a>
             </div>
         </div>
         <!-- edit form column -->
