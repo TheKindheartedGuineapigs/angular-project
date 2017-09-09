@@ -67,7 +67,13 @@ export class UserProfileComponent {
         });
     }
     onSubmitUserDetails() {
-        this.userService.updatePersonalDetails(this.userProfile, this.currentUser.uid);
-        this.message = 'Successfully updated!';
+        this.userService.updatePersonalDetails(this.userProfile, this.currentUser.uid)
+            .then(() => {
+                console.log('details updated');
+                this.message = 'Successfully updated!';
+            }).catch(error => {
+                console.log(error.message);
+                this.message = error.message;
+            });
     }
 }

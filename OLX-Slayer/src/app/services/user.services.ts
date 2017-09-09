@@ -35,12 +35,7 @@ export class UserService {
         return this.db.object('/usersDetails/' + uid);
     }
 
-    updatePersonalDetails(details, uid: string) {
-        this.db.object('/usersDetails/' + uid).set(details)
-            .then(() => {
-                console.log('details updated');
-            }).catch(err => {
-                console.log(err);
-            });
+    updatePersonalDetails(details, uid: string): firebase.Promise<any> {
+        return this.db.object('/usersDetails/' + uid).set(details);
     }
 }

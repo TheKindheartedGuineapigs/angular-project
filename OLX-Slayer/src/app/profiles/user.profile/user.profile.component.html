@@ -7,12 +7,12 @@
             <tab heading="Personal Details">
                 <br>
                 <div *ngIf="checkUsernameMessage">
-                    <alert type="warning">
+                    <alert type="warning" dismissible="true">
                         <strong>{{ checkUsernameMessage }}</strong>
                     </alert>
                 </div>
                 <div *ngIf="message">
-                    <alert type="success">
+                    <alert type="success" dismissible="true">
                         <strong>{{ message }}</strong>
                     </alert>
                 </div>
@@ -47,7 +47,7 @@
             <tab heading="Address">
                 <br>
                 <div *ngIf="message">
-                    <alert type="success">
+                    <alert type="success" dismissible="true">
                         <strong>{{ message }}</strong>
                     </alert>
                 </div>
@@ -85,7 +85,7 @@
                 <div class="container">
                     <h2>Reset Password</h2>
                     <div *ngIf="resetPasswordMessage">
-                        <alert type="info">
+                        <alert type="info" dismissible="true">
                             <strong>{{ resetPasswordMessage }}</strong>
                         </alert>
                     </div>
