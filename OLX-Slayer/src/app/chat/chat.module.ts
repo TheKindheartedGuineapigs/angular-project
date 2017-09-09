@@ -1,3 +1,5 @@
+import { ChatRoutingModule } from './chat-routing.module';
+import { AuthGuardService } from './../services/auth.guard.service';
 import { UserResolver } from './../utils/user.resolver';
 import { FormsModule } from '@angular/forms';
 import { ChatService } from './../services/chat.service';
@@ -9,16 +11,14 @@ import { ChatlistComponent } from './chatlist/chatlist.component';
 import { MessageSendComponent } from './chatroom/message-send/message-send.component';
 import { MessagesListComponent } from './chatroom/messages-list/messages-list.component';
 
-const appRoutes: Routes = [
-  { path: 'chats', component: ChatlistComponent, resolve: { user: UserResolver } },
-  { path: 'chats/:username', component: ChatroomComponent, resolve: { user: UserResolver } },
-];
+
 
 @NgModule({
   imports: [
-    RouterModule.forRoot(appRoutes),
+    RouterModule,
     CommonModule,
-    FormsModule
+    FormsModule,
+    ChatRoutingModule
   ],
   declarations: [
     ChatroomComponent,
