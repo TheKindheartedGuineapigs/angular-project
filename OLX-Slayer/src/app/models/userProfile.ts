@@ -10,14 +10,14 @@ export class UserProfile {
     public country: string;
 
     constructor() {
-        this.addressOne = '';
-        this.addressTwo = '';
-        this.city = '';
-        this.country = '';
-        this.username = '';
-        this.firstName = '';
-        this.lastName = '';
-        this.phoneNumber = '';
-        this.photoUrl = '';
+        this.addressOne = 'Loading ...';
+        this.addressTwo = 'Loading ...';
+        this.city = 'Loading ...';
+        this.country = 'Loading ...';
+        this.username = 'Loading ...';
+        this.firstName = 'Loading ...';
+        this.lastName = 'Loading ...';
+        this.phoneNumber = 'Loading ...';
+        this.photoUrl = 'Loading ...';
     }
 }

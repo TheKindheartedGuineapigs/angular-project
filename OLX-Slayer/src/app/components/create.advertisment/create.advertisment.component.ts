@@ -1,3 +1,4 @@
+import { ActivatedRoute } from '@angular/router';
 import { Advertisement } from './../../models/advertisement';
 import { UserProfile } from './../../models/userProfile';
 import { FirebaseObjectObservable } from 'angularfire2/database';
@@ -20,10 +21,15 @@ export class CreateAdvertismentComponent {
   private category: string;
   private photoUrls = [];
   private userProfile: UserProfile;
+  private currentUser: firebase.User;
 
-  constructor(private igmService: ImgurService, private advertismentService: AdvertismentService, private userService: UserService) {
+   constructor(private igmService: ImgurService, private advertismentService: AdvertismentService,
+    private userService: UserService, private route: ActivatedRoute) {
+
     this.userProfile = new UserProfile();
-    userService.getUserDetails(userService.getCurrentUserId()).subscribe(details => {
+    this.currentUser = route.snapshot.data['users'];
+
+    userService.getUserDetails(this.currentUser.uid).subscribe(details => {
       if (details.username && details.phoneNumber && details.addressOne && details.city) {
         this.userProfile = details;
         this.noPersonalDetails = false;
@@ -50,7 +56,7 @@ export class CreateAdvertismentComponent {
 
   onCreateAdvert(formData) {
     const advertisement = new Advertisement(formData.value.heading, this.category, formData.value.description, this.photoUrls,
-      this.userService.getCurrentUserId(), this.userProfile.country, this.userProfile.city,
+      this.currentUser.uid, this.userProfile.country, this.userProfile.city,
       this.userProfile.addressOne, this.userProfile.username);
     this.advertismentService.createAdvertisements(advertisement).subscribe(res => {
       console.log(res);

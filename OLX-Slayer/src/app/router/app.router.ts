@@ -1,3 +1,4 @@
+import { UserResolver } from './../utils/user.resolver';
 import { CreateAdvertismentComponent } from './../components/create.advertisment/create.advertisment.component';
 import { AuthGuardService } from './../services/auth.guard.service';
 import { LoginComponent } from './../auth/components/login/login.component';
@@ -8,7 +9,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 const appRoutes: Routes = [
   { path: 'advertisements', component: DummyComponent },
-  { path: 'advertisment', component: CreateAdvertismentComponent, canActivate: [AuthGuardService] },
+  { path: 'advertisment', resolve: { users: UserResolver }, component: CreateAdvertismentComponent, canActivate: [AuthGuardService] },
 ];
 
 @NgModule({

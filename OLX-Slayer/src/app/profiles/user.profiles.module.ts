@@ -1,3 +1,4 @@
+import { UserResolver } from './../utils/user.resolver';
 import { PublicProfileComponent } from './public.profile/public.profile.component';
 import { CommonModule } from '@angular/common';
 import { AngularFireDatabase } from 'angularfire2/database';
@@ -11,7 +12,7 @@ import { NgModule } from '@angular/core';
 import { TabsModule } from 'ngx-bootstrap';
 
 const appRoutes: Routes = [
-    { path: 'profile', component: UserProfileComponent, canActivate: [AuthGuardService] },
+    { path: 'profile', resolve: { users: UserResolver }, component: UserProfileComponent, canActivate: [AuthGuardService] },
     { path: 'publicprofile/:uid', component: PublicProfileComponent }
   ];
 
@@ -32,6 +33,7 @@ const appRoutes: Routes = [
         ImgurService,
         AngularFireDatabase,
         AuthGuardService,
+        UserResolver
       ]
 })
 export class UserProfilesModule {}
