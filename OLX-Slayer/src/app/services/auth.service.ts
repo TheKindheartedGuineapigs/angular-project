@@ -16,13 +16,4 @@ export class AuthService {
     login(formData): firebase.Promise<any> {
         return this.afAuth.auth.signInWithEmailAndPassword(formData.value.email, formData.value.password);
     }
-
-    logout() {
-        this.afAuth.auth.signOut()
-            .then(() => {
-                console.log('you are now loged out!');
-            }).catch(error => {
-                console.log(error);
-            });
-    }
 }

@@ -1,4 +1,4 @@
-import { UserService } from './../../../services/user.services';
+import { AuthService } from './../../../services/auth.service';
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 
@@ -10,11 +10,11 @@ import { Router } from '@angular/router';
 export class SignUpComponent {
   public error: string;
 
-  constructor(private userService: UserService, private router: Router) {}
+  constructor(private authService: AuthService, private router: Router) {}
 
   onSubmit(formData) {
     if (formData.valid) {
-      this.userService.signup(formData)
+      this.authService.signup(formData)
       .then(
         () => {
         console.log('success');

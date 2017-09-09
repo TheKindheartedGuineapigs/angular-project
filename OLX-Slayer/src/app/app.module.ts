@@ -1,3 +1,5 @@
+import { AuthService } from './services/auth.service';
+import { UserResolver } from './utils/user.resolver';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { UserProfilesModule } from './profiles/user.profiles.module';
 import { AdvertismentService } from './services/advertisments.service';
@@ -56,7 +58,9 @@ import { AlertModule } from 'ngx-bootstrap/alert';
     ImgurService,
     AngularFireDatabase,
     AuthGuardService,
-    AdvertismentService
+    AdvertismentService,
+    UserResolver,
+    AuthService
   ],
   bootstrap: [AppComponent]
 })
