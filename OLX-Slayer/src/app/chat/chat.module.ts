@@ -1,3 +1,4 @@
+import { UserResolver } from './../utils/user.resolver';
 import { FormsModule } from '@angular/forms';
 import { ChatService } from './../services/chat.service';
 import { RouterModule, Routes } from '@angular/router';
@@ -9,8 +10,8 @@ import { MessageSendComponent } from './chatroom/message-send/message-send.compo
 import { MessagesListComponent } from './chatroom/messages-list/messages-list.component';
 
 const appRoutes: Routes = [
-  { path: 'chats', component: ChatlistComponent },
-  { path: 'chats/:username', component: ChatroomComponent },
+  { path: 'chats', component: ChatlistComponent, resolve: { user: UserResolver } },
+  { path: 'chats/:username', component: ChatroomComponent, resolve: { user: UserResolver } },
 ];
 
 @NgModule({
@@ -26,7 +27,8 @@ const appRoutes: Routes = [
     MessagesListComponent
   ],
   providers: [
-    ChatService
+    ChatService,
+    UserResolver
   ]
 })
 
