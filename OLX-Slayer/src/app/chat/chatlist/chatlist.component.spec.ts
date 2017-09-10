@@ -11,14 +11,14 @@ import { UserService } from './../../services/user.services';
 import { ChatService } from './../../services/chat.service';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
- 
+
 import { APP_BASE_HREF } from '@angular/common';
 import { Observable } from 'rxjs/Observable';
 import { ChatlistComponent } from './chatlist.component';
 import 'rxjs/add/operator/mergeMap';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/observable/of';
- 
+
 describe('ChatlistComponent', () => {
   let component: ChatlistComponent;
   let fixture: ComponentFixture<ChatlistComponent>;
@@ -27,12 +27,12 @@ describe('ChatlistComponent', () => {
   let chatsToReturn;
   let chatService;
   let userService;
- 
+
     beforeEach(async(() => {
         user = {
             username: 'loremipsum',
         };
- 
+
         chats = [
             { _id: '0', participants: [user.username, 'other1'], messages: [] },
             { _id: '0', participants: [user.username, 'other2'], messages: [] },
@@ -40,21 +40,21 @@ describe('ChatlistComponent', () => {
             { _id: '0', participants: [user.username, 'other4'], messages: [] },
             { _id: '0', participants: [user.username, 'other5'], messages: [] }
         ];
- 
+
         chatsToReturn = {
             json: () => ({ result: chats }),
         };
- 
+
         chatService = {
             loadUserChats: jasmine.createSpy('loadUserChats')
                 .and.returnValue(Observable.of(chatsToReturn)),
         };
- 
+
         userService = {
             getUserDetails: jasmine.createSpy('getUserDetails')
                 .and.returnValue(Observable.of(user)),
         };
- 
+
         TestBed.configureTestingModule({
             imports: [
                 RouterTestingModule,
@@ -77,41 +77,79 @@ describe('ChatlistComponent', () => {
         })
         .compileComponents();
     }));
- 
+
     beforeEach(() => {
         fixture = TestBed.createComponent(ChatlistComponent);
         component = fixture.componentInstance;
         fixture.detectChanges();
     });
- 
+
     it('should be created', () => {
         expect(component).toBeTruthy();
     });
- 
+
     it('should properly set chats field upon logged user and available chats', () => {
         expect(component.chats.length).toEqual(5);
     });
- 
+
     it('should call chatService.loadUserChats once upon init', () => {
         expect(chatService.loadUserChats.calls.count()).toEqual(1);
     });
- 
+
     it('should call userService.getUserDetails once upon init', () => {
         expect(userService.getUserDetails.calls.count()).toEqual(1);
     });
- 
+
     it('should set dataLoaded flag to true once all data is successfully loaded upon init', () => {
         expect(component.isDataLoaded).toEqual(true);
     });
- 
+
     it('should set loggedUsername with proper value if user is logged in upon init', () => {
         expect(component.loggedUsername).toEqual('loremipsum');
     });
- 
-    it('should show "Chats of [loggedUsername] title', () => {
+
+    it('should show Chats of [loggedUsername] title', () => {
         const elements = fixture.debugElement.query(By.css('h2'));
         const title = elements.nativeElement;
- 
+
         expect(title.textContent).toContain(component.loggedUsername);
+    });
+
+    it('chats listed should only show other participant`s username', () => {
+        const elements = fixture.debugElement.queryAll(By.css('span.card-title'));
+
+        elements.forEach((el) => {
+            const current = el.nativeElement;
+
+            expect(current.textContent).not.toContain(user.username);
+        });
+    });
+
+    it('chats listed should contain the usernames of the other participant', () => {
+        const elements = fixture.debugElement.queryAll(By.css('span.card-title'));
+
+        let index = 0;
+
+        elements.forEach((el) => {
+            const current = el.nativeElement;
+
+            const expectedUsername = chats[index++].participants[1];
+
+            expect(current.textContent).toContain(expectedUsername);
+        });
+    });
+
+    it('Open Chat button should point to /chats/[username]', () => {
+        const elements = fixture.debugElement.queryAll(By.css('a.btn'));
+
+        let index = 0;
+
+        elements.forEach((el) => {
+            const current = el.nativeElement;
+
+            const expectedUsername = chats[index++].participants[1];
+
+            expect(current.href).toContain(`/chats/${expectedUsername}`);
+        });
     });
 });
