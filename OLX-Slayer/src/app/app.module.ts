@@ -2,8 +2,8 @@ import { AuthService } from './services/auth.service';
 import { UserResolver } from './utils/user.resolver';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { UserProfilesModule } from './profiles/user.profiles.module';
-import { AdvertismentService } from './services/advertisments.service';
-import { CreateAdvertismentComponent } from './components/create.advertisment/create.advertisment.component';
+import { AdvertisementService } from './services/advertisements.service';
+import { CreateAdvertisementComponent } from './components/create.advertisement/create.advertisement.component';
 import { ChatModule } from './chat/chat.module';
 import { ImgurService } from './services/imgur.service';
 import { SignUpComponent } from './auth/components/signup/signup.component';
@@ -28,6 +28,8 @@ import { SearchComponent } from './components/shared/search/search.component';
 import { DummyComponent } from './dummy/dummy.component';
 import { HttpModule } from '@angular/http';
 import { AlertModule } from 'ngx-bootstrap/alert';
+import { AdvertisementsComponent } from './advertisements/advertisements/advertisements.component';
+import { CurrentAdvertisementComponent } from './advertisements/current-advertisement/current-advertisement.component';
 
 
 @NgModule({
@@ -36,7 +38,9 @@ import { AlertModule } from 'ngx-bootstrap/alert';
     NavigationComponent,
     SearchComponent,
     DummyComponent,
-    CreateAdvertismentComponent,
+    CreateAdvertisementComponent,
+    AdvertisementsComponent,
+    CurrentAdvertisementComponent,
   ],
   imports: [
     BrowserModule,
@@ -58,7 +62,7 @@ import { AlertModule } from 'ngx-bootstrap/alert';
     ImgurService,
     AngularFireDatabase,
     AuthGuardService,
-    AdvertismentService,
+    AdvertisementService,
     UserResolver,
     AuthService
   ],

@@ -15,10 +15,12 @@ export class SearchComponent implements OnInit {
   }
 
   onSubmit(ev) {
-	console.log(this.searchParameter);
-	this.router.navigate([`/advertisements`], { queryParams: {
-		search: this.searchParameter,
-	}});
+    console.log(this.searchParameter);
+    this.router.navigate([`/advertisements`], {
+      queryParams: {
+        search: this.searchParameter,
+      }
+    });
   }
 
 }

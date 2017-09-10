@@ -3,16 +3,16 @@ import { Advertisement } from './../../models/advertisement';
 import { UserProfile } from './../../models/userProfile';
 import { FirebaseObjectObservable } from 'angularfire2/database';
 import { UserService } from './../../services/user.services';
-import { AdvertismentService } from './../../services/advertisments.service';
+import { AdvertisementService } from './../../services/advertisements.service';
 import { ImgurService } from './../../services/imgur.service';
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-create-advertisment',
-  templateUrl: './create.advertisment.component.html',
-  styleUrls: ['./create.advertisment.component.css']
+  selector: 'app-create-advertisement',
+  templateUrl: './create.advertisement.component.html',
+  styleUrls: ['./create.advertisement.component.css']
 })
-export class CreateAdvertismentComponent {
+export class CreateAdvertisementComponent {
   private noPersonalDetails: boolean;
   private categories = ['Electronics', 'Fashion', 'Work',
     'Sport, Hobbies', 'Books, Magazines',
@@ -23,7 +23,7 @@ export class CreateAdvertismentComponent {
   private userProfile: UserProfile;
   private currentUser: firebase.User;
 
-   constructor(private igmService: ImgurService, private advertismentService: AdvertismentService,
+   constructor(private igmService: ImgurService, private advertisementService: AdvertisementService,
     private userService: UserService, private route: ActivatedRoute) {
 
     this.userProfile = new UserProfile();
@@ -58,7 +58,7 @@ export class CreateAdvertismentComponent {
     const advertisement = new Advertisement(formData.value.heading, this.category, formData.value.description, this.photoUrls,
       this.currentUser.uid, this.userProfile.country, this.userProfile.city,
       this.userProfile.addressOne, this.userProfile.username);
-    this.advertismentService.createAdvertisements(advertisement).subscribe(res => {
+    this.advertisementService.createAdvertisements(advertisement).subscribe(res => {
       console.log(res);
     });
   }
