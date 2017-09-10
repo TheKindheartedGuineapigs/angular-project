@@ -38,7 +38,7 @@ describe('Chatroom component', () => {
             username: 'loremipsum',
         };
 
-        chat = { _id: '5', participants: [], messages: [] };
+        chat = { _id: '42', participants: [], messages: [] };
 
         chatToReturn = {
             json: () => ({ result: chat }),
@@ -89,5 +89,47 @@ describe('Chatroom component', () => {
 
     it('should be created', () => {
         expect(component).toBeTruthy();
+    });
+
+    it('should properly set otherUsername field', () => {
+        expect(component.otherUsername).toEqual('pesho');
+    });
+
+    it('should properly set usedId', () => {
+        expect(component.userId).toEqual('5');
+    });
+
+    it('should call userService.getUserDetails once upon init', () => {
+        expect(userService.getUserDetails.calls.count()).toEqual(1);
+    });
+
+    it('should call chatService.loadChat once upon init', () => {
+        expect(chatService.loadChat.calls.count()).toEqual(1);
+    });
+
+    it('should call chatService.loadChat with loggedUser username and otherUser username', () => {
+        expect(chatService.loadChat).toHaveBeenCalledWith('loremipsum', 'pesho');
+    });
+
+    it('should set isDataLoaded to true after everything loads', () => {
+        expect(component.isDataLoaded).toEqual(true);
+    });
+
+    it('should properly set chat field', () => {
+        expect(component.chat._id).toEqual('42');
+    });
+
+    it('reloadData should call chatService.loadChat once', () => {
+        chatService.loadChat.calls.reset();
+
+        component.reloadData();
+
+        expect(chatService.loadChat.calls.count()).toEqual(1);
+    });
+
+    it('reloadData should call chatService.loadChat with loggedUser username and otherUser username', () => {
+        component.reloadData();
+        expect(chatService.loadChat.calls.argsFor(1)).toContain('pesho');
+        expect(chatService.loadChat.calls.argsFor(1)).toContain('loremipsum');
     });
 });
