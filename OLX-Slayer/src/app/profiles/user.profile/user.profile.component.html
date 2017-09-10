@@ -23,7 +23,7 @@
                             <input type="text" id="username" placeholder="change your username" name="username" class="form-control" [(ngModel)]="userProfile.username"
                                 [disabled]="aveilable===true">
                             <div *ngIf="aveilable===false">
-                                <a class="btn btn-primary" (click)="checkUsername(userProfile.username)">check Username!</a>
+                                <a class="btn btn-primary" (click)="checkUsername()">check Username!</a>
                             </div>
                         </div>
                     </div>
@@ -93,7 +93,7 @@
                         <div class="form-group">
                             <div class="small-12 columns">
                                 <label> Enter email address</label>
-                                <input class="form-control" type="email" name="email" placeholder="e.g email@address.com" (ngModel)="email" required>
+                                <input class="form-control" type="email" name="email" placeholder="e.g email@address.com" ngModel required>
                             </div>
                             <div>
                                 <br>

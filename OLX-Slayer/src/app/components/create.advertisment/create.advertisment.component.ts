@@ -13,14 +13,14 @@ import { Component } from '@angular/core';
   styleUrls: ['./create.advertisment.component.css']
 })
 export class CreateAdvertismentComponent {
-  private noPersonalDetails: boolean;
-  private categories = ['Electronics', 'Fashion', 'Work',
+  noPersonalDetails: boolean;
+  categories = ['Electronics', 'Fashion', 'Work',
     'Sport, Hobbies', 'Books, Magazines',
     'Cars, Car parts', 'Bikes, Bike parts',
     'Home', 'Animals', 'Services'];
-  private category: string;
-  private photoUrls = [];
-  private userProfile: UserProfile;
+  category: string;
+  photoUrls = [];
+  userProfile: UserProfile;
   private currentUser: firebase.User;
 
    constructor(private igmService: ImgurService, private advertismentService: AdvertismentService,

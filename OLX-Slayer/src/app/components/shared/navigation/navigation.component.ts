@@ -9,7 +9,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./navigation.component.css']
 })
 export class NavigationComponent {
-  private isLogedIn: boolean;
+  isLogedIn: boolean;
+
   constructor(private auth: AngularFireAuth, private router: Router) {
     this.auth.authState.subscribe(user => {
       if (user) {
