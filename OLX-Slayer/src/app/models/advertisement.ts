@@ -25,4 +25,8 @@ export class Advertisement {
         return this.heading;
     }
 
+    get _images(): [string] {
+        return this.images;
+    }
+
 }

@@ -1,4 +1,4 @@
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Advertisement } from './../../models/advertisement';
 import { UserProfile } from './../../models/userProfile';
 import { FirebaseObjectObservable } from 'angularfire2/database';
@@ -23,11 +23,10 @@ export class CreateAdvertisementComponent {
   private userProfile: UserProfile;
   private currentUser: firebase.User;
 
-   constructor(private igmService: ImgurService, private advertisementService: AdvertisementService,
+   constructor(private router: Router, private igmService: ImgurService, private advertisementService: AdvertisementService,
     private userService: UserService, private route: ActivatedRoute) {
-
     this.userProfile = new UserProfile();
-    this.currentUser = route.snapshot.data['users'];
+    this.currentUser = route.snapshot.data['user'];
 
     userService.getUserDetails(this.currentUser.uid).subscribe(details => {
       if (details.username && details.phoneNumber && details.addressOne && details.city) {
@@ -59,7 +58,8 @@ export class CreateAdvertisementComponent {
       this.currentUser.uid, this.userProfile.country, this.userProfile.city,
       this.userProfile.addressOne, this.userProfile.username);
     this.advertisementService.createAdvertisements(advertisement).subscribe(res => {
-      console.log(res);
+      this.router.navigate(['/advertisements']);
+      console.log(res.status);
     });
   }
 }

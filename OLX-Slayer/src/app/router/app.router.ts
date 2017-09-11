@@ -6,13 +6,12 @@ import { SignUpComponent } from '../auth/components/signup/signup.component';
 import { SearchComponent } from '../components/shared/search/search.component';
 import { DummyComponent } from '../dummy/dummy.component';
 import { AdvertisementsComponent } from '../advertisements/advertisements/advertisements.component';
+import { AdvertisementDetailsComponent } from '../advertisements/advertisement.details/advertisement.details.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 const appRoutes: Routes = [
   { path: '', component: SearchComponent},
-  { path: 'advertisements', component: AdvertisementsComponent},
-  { path: 'advertisement', resolve: { users: UserResolver }, component: CreateAdvertisementComponent, canActivate: [AuthGuardService] },
 ];
 
 @NgModule({

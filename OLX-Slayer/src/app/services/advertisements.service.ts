@@ -19,7 +19,7 @@ export class AdvertisementService {
     findById(id: string) {
         return this.http.get(`${this.apiAdress}/${this.advertisementDir}/${id}`);
     }
-    
+
     getAllAdvertisements() {
         return this.http.get(`${this.apiAdress}/${this.advertisementDir}`);
     }

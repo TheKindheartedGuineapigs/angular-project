@@ -9,6 +9,7 @@ export class UserResolver implements Resolve<firebase.User> {
     constructor(private userService: UserService) {}
 
     resolve(): Observable<firebase.User> {
+        console.log("ivan resolveraq");
         return this.userService.getCurrentUser().take(1);
     }
 }

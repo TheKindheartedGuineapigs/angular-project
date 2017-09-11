@@ -1,0 +1,13 @@
+<div class="container" *ngIf="isLoaded">
+  <h3>{{ad.heading}}</h3>
+  <div class="additional-info">
+    <span></span>
+    <span class="category">{{ad.category}}</span>
+    <span class="city">{{ad.city}}</span>
+    <p class="description">{{ad.description}}</p>
+    <a [routerLink]="['/users/' + ad.createdBy]" class="username">{{ad.username}}</a>
+    <div class="imgs" *ngFor="let image of ad._images">
+      <img src="{{image}}" alt="">
+    </div>
+  </div>
+</div>

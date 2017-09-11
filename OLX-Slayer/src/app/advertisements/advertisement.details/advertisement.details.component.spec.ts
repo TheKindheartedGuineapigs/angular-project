@@ -3,7 +3,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 
-import { Advertisement.details.component.tsComponent } from './advertisement.details.component.ts.component';
+import { Advertisement.details.component.tsComponent } from './advertisement.details.component';
 
 describe('Advertisement.details.component.tsComponent', () => {
   let component: Advertisement.details.component.tsComponent;

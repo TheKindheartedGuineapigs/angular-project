@@ -27,7 +27,11 @@ p {
     margin-right: 20%;
     clear: both;
 }
-
+/* 
 .listing-city {
-    margin-top:
+    margin-top: 10%;
+} */
+
+.row {
+    border: 1px solid black;
 }

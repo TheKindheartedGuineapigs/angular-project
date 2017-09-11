@@ -12,6 +12,7 @@ import { SearchComponent } from '../../components/shared/search/search.component
 export class AdvertisementsComponent implements OnInit {
   ads: Advertisement[];
   params: string;
+  message: string;
 
   constructor(router: Router,
     private route: ActivatedRoute,
@@ -26,18 +27,18 @@ export class AdvertisementsComponent implements OnInit {
 
 
   ngOnInit() {
-    if (this.params === null) {
+    if (this.params === undefined) {
       this.LoadAds()
-        .subscribe(result => console.log(result.json().result));
+        .subscribe(result => this.ads = (result.json().result));
     }
 
-    if (this.params !== null) {
+    else {
       this.LoadAds()
         .subscribe(result => this.ads = result.json().result
           .filter(x => x.heading.includes(this.params)));
+          console.log(this.ads);
     }
   }
-
 
   private LoadAds() {
     return this.advertisementService.getAllAdvertisements();
