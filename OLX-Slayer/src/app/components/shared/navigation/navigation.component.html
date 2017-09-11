@@ -11,7 +11,7 @@
 		<ul class="">
 			<li><a [routerLink]="['/']">Home</a></li>
 			<li><a [routerLink]="['/advertisements']">Advertisements</a></li>
-			<li *ngIf="isLogedIn"><a [routerLink]="['/chats']">Chats</a></li>
+			<li *ngIf="isLogedIn"><a id="chat-nav-btn" [routerLink]="['/chats']">Chats</a></li>
 		</ul>
 		<ul class="right">
 			<li><a *ngIf="isLogedIn === false" [routerLink]="['/signup']">Register</a></li>
