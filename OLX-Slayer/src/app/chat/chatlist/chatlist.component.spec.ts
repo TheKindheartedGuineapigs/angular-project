@@ -23,7 +23,7 @@ describe('ChatlistComponent', () => {
   let component: ChatlistComponent;
   let fixture: ComponentFixture<ChatlistComponent>;
   let user;
-  let chats: Chat[];
+  let chats;
   let chatsToReturn;
   let chatService;
   let userService;
@@ -34,11 +34,11 @@ describe('ChatlistComponent', () => {
         };
 
         chats = [
-            { _id: '0', participants: [user.username, 'other1'], messages: [] },
-            { _id: '0', participants: [user.username, 'other2'], messages: [] },
-            { _id: '0', participants: [user.username, 'other3'], messages: [] },
-            { _id: '0', participants: [user.username, 'other4'], messages: [] },
-            { _id: '0', participants: [user.username, 'other5'], messages: [] }
+            { _id: '0', participants: [user.username, 'other1'], messages: [], lastMessage: { } },
+            { _id: '0', participants: [user.username, 'other2'], messages: [], lastMessage: { } },
+            { _id: '0', participants: [user.username, 'other3'], messages: [], lastMessage: { } },
+            { _id: '0', participants: [user.username, 'other4'], messages: [], lastMessage: { } },
+            { _id: '0', participants: [user.username, 'other5'], messages: [], lastMessage: { } }
         ];
 
         chatsToReturn = {

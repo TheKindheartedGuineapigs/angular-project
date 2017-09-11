@@ -21,14 +21,14 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/mergeMap';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/observable/of';
-import { fakeAsync } from "@angular/core/testing";
-import { tick } from "@angular/core/testing";
+import { fakeAsync } from '@angular/core/testing';
+import { tick } from '@angular/core/testing';
 
 describe('Chatroom component', () => {
   let component: ChatroomComponent;
   let fixture: ComponentFixture<ChatroomComponent>;
   let user;
-  let chat: Chat;
+  let chat;
   let chatToReturn;
   let chatService;
   let userService;
