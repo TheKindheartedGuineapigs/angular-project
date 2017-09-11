@@ -1,0 +1,61 @@
+<div class="container" style="padding-top: 60px;">
+    <h1 class="page-header">Public Profile</h1>
+    <div class="row">
+        <!-- left column -->
+        <div class="col-md-4 col-sm-6 col-xs-12">
+            <div class="text-center">
+                <img src="{{ (userProfile | async)?.photoUrl }}" style="width: 100%; height: 100%" class="img-circle" alt="avatar">
+            </div>
+            <br>
+            <div class="col-md-4 col-sm-6 col-xs-12">
+                <a class="btn btn-primary" [routerLink]="['/chats/' + (userProfile | async)?.username]">Send Message </a>
+            </div>
+        </div>
+        <!-- edit form column -->
+        <div class="col-md-8 col-sm-6 col-xs-12 personal-info">
+            <h3>Personal info</h3>
+            <div class="col">
+                <label class="col-lg-3 control-label">First name:</label>
+                <div class="col-lg-8">
+                    <p> {{ (userProfile | async)?.firstName }} </p>
+                </div>
+            </div>
+            <div class="col">
+                <label class="col-lg-3 control-label">Last name:</label>
+                <div class="col-lg-8">
+                    <p> {{ (userProfile | async)?.lastName }} </p>
+                </div>
+            </div>
+            <div class="col">
+                <label class="col-lg-3 control-label">Username:</label>
+                <div class="col-lg-8">
+                    <p> {{ (userProfile | async)?.username }} </p>
+                </div>
+            </div>
+            <div class="col">
+                <label class="col-lg-3 control-label">Country:</label>
+                <div class="col-lg-8">
+                    <p> {{ (userProfile | async)?.country }} </p>
+                </div>
+            </div>
+            <div class="col">
+                <label class="col-md-3 control-label">City:</label>
+                <div class="col-md-8">
+                    <p> {{ (userProfile | async)?.city }} </p>
+                </div>
+            </div>
+            <div class="col">
+                <label class="col-md-3 control-label">Address:</label>
+                <div class="col-md-8">
+                    <p> {{ (userProfile | async)?.addressOne }} </p>
+                </div>
+            </div>
+            <div class="col">
+                <label class="col-md-3 control-label">Phone Number:</label>
+                <div class="col-md-8">
+                    <p> {{ (userProfile | async)?.phoneNumber }} </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

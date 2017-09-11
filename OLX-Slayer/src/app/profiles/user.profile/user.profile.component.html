@@ -1,0 +1,108 @@
+<div class="container">
+    <div class="text-center">
+        <h1>Your Profile</h1>
+    </div>
+    <div class="row">
+        <tabset class="col-md-8 col-sm-8 col-xs-12">
+            <tab heading="Personal Details">
+                <br>
+                <div *ngIf="checkUsernameMessage">
+                    <alert type="warning" dismissible="true">
+                        <strong>{{ checkUsernameMessage }}</strong>
+                    </alert>
+                </div>
+                <div *ngIf="message">
+                    <alert type="success" dismissible="true">
+                        <strong>{{ message }}</strong>
+                    </alert>
+                </div>
+                <form (ngSubmit)="onSubmitUserDetails()">
+                    <div>
+                        <div class="form-group">
+                            <label for="username">Username:</label>
+                            <input type="text" id="username" placeholder="change your username" name="username" class="form-control" [(ngModel)]="userProfile.username"
+                                [disabled]="aveilable===true">
+                            <div *ngIf="aveilable===false">
+                                <a class="btn btn-primary" (click)="checkUsername()">check Username!</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="first-name">First Name:</label>
+                        <input type="text" id="first-name" placeholder="change your first name" name="firstName" class="form-control" [(ngModel)]="userProfile.firstName">
+                    </div>
+                    <div class="form-group">
+                        <label for="last-name">Last Name:</label>
+                        <input type="text" id="last-name" placeholder="change your last name" name="lastName" class="form-control" [(ngModel)]="userProfile.lastName">
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone number:</label>
+                        <input type="text" id="phone" placeholder="change your phone nuber" name="phoneNumber" class="form-control" [(ngModel)]="userProfile.phoneNumber">
+                    </div>
+                    <div>
+                        <button class="btn btn-primary" [disabled]="aveilable===false">Update</button>
+                    </div>
+                </form>
+            </tab>
+            <tab heading="Address">
+                <br>
+                <div *ngIf="message">
+                    <alert type="success" dismissible="true">
+                        <strong>{{ message }}</strong>
+                    </alert>
+                </div>
+                <form (ngSubmit)="onSubmitUserDetails()">
+                    <div class="form-group">
+                        <label for="address-one">Address 1:</label>
+                        <input type="text" id="address-one" placeholder="change your First address" name="addressOne" class="form-control" [(ngModel)]="userProfile.addressOne">
+                    </div>
+                    <div class="form-group">
+                        <label for="address-two">Address 2:</label>
+                        <input type="text" id="address-two" placeholder="change your Second address" name="addressTwo" class="form-control" [(ngModel)]="userProfile.addressTwo">
+                    </div>
+                    <div class="form-group">
+                        <label for="city">City:</label>
+                        <input type="text" id="city" placeholder="change your City" name="city" class="form-control" [(ngModel)]="userProfile.city">
+                    </div>
+                    <div class="form-group">
+                        <label for="country">Country:</label>
+                        <input type="text" id="country" placeholder="change your Country" name="country" class="form-control" [(ngModel)]="userProfile.country">
+                    </div>
+                    <div>
+                        <button class="btn btn-primary" [disabled]="aveilable===false">Update</button>
+                    </div>
+                </form>
+            </tab>
+            <tab heading="Profile Picture">
+                <div class="text-center">
+                    <img src="{{userProfile.photoUrl}}" style="width: 50%; height: 50%" class="rounded" alt="avatar">
+                    <h6>Upload a different photo...</h6>
+                    <input #file type="file" accept="image/*" class="text-center center-block well well-sm">
+                    <button class="btn btn-success" (click)="onSubmitPicture(file.files[0])">Submit</button>
+                </div>
+            </tab>
+            <tab heading="Change Password">
+                <div class="container">
+                    <h2>Reset Password</h2>
+                    <div *ngIf="resetPasswordMessage">
+                        <alert type="info" dismissible="true">
+                            <strong>{{ resetPasswordMessage }}</strong>
+                        </alert>
+                    </div>
+                    <form #formData='ngForm' (ngSubmit)="onSubmitResetPassword(formData)">
+                        <div class="form-group">
+                            <div class="small-12 columns">
+                                <label> Enter email address</label>
+                                <input class="form-control" type="email" name="email" placeholder="e.g email@address.com" ngModel required>
+                            </div>
+                            <div>
+                                <br>
+                                <button type="submit" class="btn btn-primary" [disabled]="!formData.valid">Submit</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </tab>
+        </tabset>
+    </div>
+</div>

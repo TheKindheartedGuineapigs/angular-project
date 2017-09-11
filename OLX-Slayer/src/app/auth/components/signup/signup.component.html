@@ -1,0 +1,23 @@
+<div class="container">
+  <div class="row">
+    <div class="span4 offset4 well">
+      <legend>Register</legend>
+      <div *ngIf="error" class="alert alert-error">
+        <alert type="danger">
+          <strong>{{error}}</strong>
+        </alert>
+      </div>
+      <form #formData='ngForm' (ngSubmit)="onSubmit(formData)">
+        <div class="form-group">
+          <label for="inputEmail">Email address:</label>
+          <input class="form-control" name="email" type="email" placeholder="Email" id="inputEmail" required ngModel>
+        </div>
+        <div class="form-group">
+          <label for="inputPassword">Password:</label>
+          <input class="form-control" name="password" type="password" placeholder="Password" id="inputPassword" required ngModel>
+        </div>
+        <button type="submit" class="btn btn-primary" [disabled]="!formData.valid">Submit</button>
+      </form>
+    </div>
+  </div>
+</div>

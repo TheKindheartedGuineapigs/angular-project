@@ -1,0 +1,9 @@
+<form (ngSubmit)="onSubmit($event)" class="col s12">
+  <div class="row">
+    <div class="input-field col s6">
+      <input type="text" [(ngModel)]="searchParameter" placeholder="Search..." name="searchParameter">
+      <button type="submit">Search</button>
+    </div>
+  </div>  
+</form>
+

@@ -1,6 +1,5 @@
-import { User } from './user';
-
 export class Message {
-    sender: User;
-    content: string;
+    author: string;
+    text: string;
+    timeStamp: string;
 }
