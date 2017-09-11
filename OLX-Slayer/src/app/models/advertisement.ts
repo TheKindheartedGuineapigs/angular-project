@@ -21,4 +21,12 @@ export class Advertisement {
         this.username = username;
     }
 
+    get _heading(): string {
+        return this.heading;
+    }
+
+    get _images(): [string] {
+        return this.images;
+    }
+
 }

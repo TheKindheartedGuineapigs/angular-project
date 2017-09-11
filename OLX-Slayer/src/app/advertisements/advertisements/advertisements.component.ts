@@ -13,8 +13,7 @@ export class AdvertisementsComponent implements OnInit {
   ads: Advertisement[];
   params: string;
 
-  constructor(router: Router,
-    private route: ActivatedRoute,
+  constructor(private route: ActivatedRoute,
     private advertisementService: AdvertisementService) {
     if (route.queryParams) {
       route.queryParams

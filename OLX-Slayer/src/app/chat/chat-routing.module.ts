@@ -25,4 +25,4 @@ const chatRoutes: Routes = [
   ],
   declarations: []
 })
-export class ChatRoutingModule { }
+export class ChatRoutingModule {}

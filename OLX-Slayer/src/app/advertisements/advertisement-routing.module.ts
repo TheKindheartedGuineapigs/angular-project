@@ -13,13 +13,10 @@ const advertisementRoutes: Routes = [
     path: 'advertisements',
     children: [
       {path: '', component: AdvertisementsComponent},
-      {path: ':id', component: AdvertisementDetailsComponent},
-      
-
+      {path: ':id', component: AdvertisementDetailsComponent}
     ]
   },
   {path: 'createAdvertisement', component: CreateAdvertisementComponent, resolve: { user: UserResolver}}
-  {path: 'users/:id', component}
 ];
 
 @NgModule({

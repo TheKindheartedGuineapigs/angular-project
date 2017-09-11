@@ -1,0 +1,37 @@
+.listing-image {
+    width: 100px;
+    height: 100px;
+}
+
+h4{
+     display: inline-flex; 
+}
+
+.listing-heading {
+    display: inline-flex;
+    clear: both;
+}
+
+p {
+    display: inline;
+}
+
+ .listing-heading:hover {
+    background-color:lightblue;
+    text-decoration: none;
+} 
+
+.listing-category {
+    display: inline;
+    margin-top: 7%;
+    margin-right: 20%;
+    clear: both;
+}
+/* 
+.listing-city {
+    margin-top: 10%;
+} */
+
+.row {
+    border: 1px solid black;
+}
