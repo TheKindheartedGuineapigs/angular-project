@@ -9,8 +9,8 @@ import { Component } from '@angular/core';
     templateUrl: './public.profile.component.html'
 })
 export class PublicProfileComponent {
-    private userProfile: FirebaseObjectObservable<any>;
-    private userId: string;
+    userProfile: FirebaseObjectObservable<any>;
+    userId: string;
 
     constructor(private userService: UserService, private route: ActivatedRoute) {
         this.route.params.subscribe(params => {

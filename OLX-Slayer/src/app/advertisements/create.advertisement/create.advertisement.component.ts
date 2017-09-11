@@ -18,9 +18,9 @@ export class CreateAdvertisementComponent {
     'Sport, Hobbies', 'Books, Magazines',
     'Cars, Car parts', 'Bikes, Bike parts',
     'Home', 'Animals', 'Services'];
-  private category: string;
-  private photoUrls = [];
-  private userProfile: UserProfile;
+  category: string;
+  photoUrls = [];
+  userProfile: UserProfile;
   private currentUser: firebase.User;
 
    constructor(private router: Router, private igmService: ImgurService, private advertisementService: AdvertisementService,

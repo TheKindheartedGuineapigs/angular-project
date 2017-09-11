@@ -2,6 +2,7 @@ import { Observable } from 'rxjs/Observable';
 import { Router, CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { Injectable } from '@angular/core';
+import 'rxjs/add/operator/map';
 
 
 @Injectable()

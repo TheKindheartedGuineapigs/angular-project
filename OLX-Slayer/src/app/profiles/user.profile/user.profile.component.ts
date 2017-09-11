@@ -11,11 +11,11 @@ import { Component, OnChanges, OnInit } from '@angular/core';
 })
 export class UserProfileComponent {
     private currentUser: firebase.User;
-    private message: string;
-    private checkUsernameMessage: string;
-    private resetPasswordMessage: string;
-    private aveilable: boolean;
-    private userProfile: UserProfile;
+    message: string;
+    checkUsernameMessage: string;
+    resetPasswordMessage: string;
+    aveilable: boolean;
+    userProfile: UserProfile;
 
     constructor(private userService: UserService, private imgService: ImgurService, private route: ActivatedRoute) {
         this.userProfile = new UserProfile();
@@ -55,17 +55,23 @@ export class UserProfileComponent {
         }
     }
 
-    checkUsername(username: string) {
-        this.userService.availableUsername(username).subscribe(response => {
-            if (response.length === 0) {
-                this.aveilable = true;
-                this.checkUsernameMessage = 'username is aveilable';
-            } else {
-                this.aveilable = false;
-                this.checkUsernameMessage = 'username is taken';
-            }
-        });
+    checkUsername() {
+        console.log(this.userProfile.username);
+        if (this.userProfile.username === null || this.userProfile.username.length === 0) {
+            this.checkUsernameMessage = 'type your username first';
+        } else {
+            this.userService.availableUsername(this.userProfile.username).subscribe(response => {
+                if (response.length === 0) {
+                    this.aveilable = true;
+                    this.checkUsernameMessage = 'username is aveilable';
+                } else {
+                    this.aveilable = false;
+                    this.checkUsernameMessage = 'username is taken';
+                }
+            });
+        }
     }
+
     onSubmitUserDetails() {
         this.userService.updatePersonalDetails(this.userProfile, this.currentUser.uid)
             .then(() => {
