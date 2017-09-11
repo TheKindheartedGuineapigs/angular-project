@@ -13,7 +13,7 @@
                     <div class="row" *ngIf="msg.author === loggedUsername">
                         <div class="col s10">
                             <div class="messages blue">
-                                <span><b>{{msg.author}} said:</b></span>
+                                <span><b>{{msg.author}} on {{msg.timeStamp | date: 'medium' : -0500}}:</b></span>
                                 <div class="msg-content">{{msg.text}}</div>
                             </div>
                         </div>
@@ -22,7 +22,7 @@
                     <div class="row base_sent" *ngIf="msg.author !== loggedUsername">
                         <div class="col-md-10 col-xs-10 ">
                             <div class="messages green">
-                                <span><b>{{msg.author}} said:</b></span>
+                                <span><b>{{msg.author}} on {{msg.timeStamp}}:</b></span>
                                 <div class="msg-content">{{msg.text}}</div>
                             </div>
                         </div>

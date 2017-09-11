@@ -10,11 +10,11 @@
       <form #formData='ngForm' (ngSubmit)="onSubmit(formData)">
         <div class="form-group">
           <label for="inputEmail">Email address:</label>
-          <input class="form-control" name="email" type="email" placeholder="Email" id="inputEmail" required (ngModel)="email">
+          <input class="form-control" name="email" type="email" placeholder="Email" id="inputEmail" required ngModel>
         </div>
         <div class="form-group">
           <label for="inputPassword">Password:</label>
-          <input class="form-control" name="password" type="password" placeholder="Password" id="inputPassword" required (ngModel)="password">
+          <input class="form-control" name="password" type="password" placeholder="Password" id="inputPassword" required ngModel>
         </div>
         <button type="submit" class="btn btn-primary" [disabled]="!formData.valid">Submit</button>
       </form>
