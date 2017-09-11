@@ -15,6 +15,10 @@ export class SearchComponent implements OnInit {
   }
 
   onSubmit(ev) {
+<<<<<<< HEAD
+=======
+    console.log(this.searchParameter);
+>>>>>>> feature/advertisements
     this.router.navigate([`/advertisements`], {
       queryParams: {
         search: this.searchParameter,

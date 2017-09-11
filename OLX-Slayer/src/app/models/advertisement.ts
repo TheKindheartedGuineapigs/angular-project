@@ -25,8 +25,11 @@ export class Advertisement {
         return this.heading;
     }
 
+<<<<<<< HEAD
     get _images(): [string] {
         return this.images;
     }
 
+=======
+>>>>>>> feature/advertisements
 }

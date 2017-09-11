@@ -34,7 +34,6 @@ export class AdvertisementsComponent implements OnInit {
       this.LoadAds()
         .subscribe(result => this.ads = result.json().result
           .filter(x => x.heading.includes(this.params)));
-          console.log(this.ads);
     }
   }
 
