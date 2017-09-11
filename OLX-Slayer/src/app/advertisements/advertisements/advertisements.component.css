@@ -23,12 +23,10 @@ p {
 
 .listing-category {
     display: inline;
-    margin-top: 7%;
     margin-right: 20%;
     clear: both;
 }
 
 .row {
     border: 1px solid black;
-    border-radius: 10%;
 }

@@ -1,13 +1,51 @@
-<div class="container" *ngIf="isLoaded">
-  <h3>{{ad.heading}}</h3>
-  <div class="additional-info">
-    <span></span>
-    <span class="category">{{ad.category}}</span>
-    <span class="city">{{ad.city}}</span>
-    <p class="description">{{ad.description}}</p>
-    <a [routerLink]="['/publicprofile/' + ad.createdBy]" class="username">{{ad.username}}</a>
-    <div class="imgs" *ngFor="let image of ad.images">
-      <img src="image" alt="">
-    </div>
+<div class="container" style="padding-top: 60px;">
+  <h1 class="page-header">Seller Details:</h1>
+  <div class="row">
+      <!-- left column -->
+      <div class="col-md-4 col-sm-6 col-xs-12">
+          <div class="text-center">
+            <div *ngIf="ad">
+                <p>Username: <a [routerLink]="['/publicprofile/' + ad.createdBy]" class="username">{{ad.username}}</a></p>
+            </div>
+          </div>
+          <br>
+          <div class="text-center">
+            <p>From: {{ ad.city }} </p>
+          </div>
+          <br>
+          <div class="text-center">
+            <p>Address: {{ ad.address }} </p>
+          </div>
+      </div>
+      <!-- edit form column -->
+      <div class="col-md-8 col-sm-6 col-xs-12 personal-info">
+          <h3>Advertisement info</h3>
+          <div class="col">
+              <label class="col-lg-3 control-label">Heading:</label>
+              <div class="col-lg-8">
+                  <p> {{ ad.heading }} </p>
+              </div>
+          </div>
+          <div class="col">
+              <label class="col-lg-3 control-label">Category:</label>
+              <div class="col-lg-8">
+                  <p> {{ ad.category }} </p>
+              </div>
+          </div>
+          <div class="col">
+              <label class="col-lg-3 control-label">Description:</label>
+              <div class="col-lg-8">
+                  <p> {{ ad.description }} </p>
+              </div>
+          </div>
+          <div class="col">
+            <div *ngIf="ad.images.length > 0">
+                <label class="col-lg-3 control-label">Images:</label>
+                <div class="imgs" *ngFor="let image of ad.images">
+                  <img src="image" alt="">
+                </div>
+            </div>
+          </div>
+      </div>
   </div>
 </div>

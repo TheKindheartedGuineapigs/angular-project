@@ -19,6 +19,7 @@ export class AdvertisementDetailsComponent implements OnInit {
   constructor(router: Router,
     private route: ActivatedRoute,
     private advertisementService: AdvertisementService) {
+      this.ad = new Advertisement('', '', '', [], '', '', '', '', '');
     this.isLoaded = false;
     route.params
       .subscribe((query) => {
