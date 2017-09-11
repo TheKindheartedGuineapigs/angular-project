@@ -5,4 +5,5 @@ export class Chat {
     _id;
     participants: string[];
     messages: Message[];
+    lastMessage: Message[];
 }
