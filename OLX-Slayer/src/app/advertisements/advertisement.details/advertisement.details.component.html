@@ -5,19 +5,9 @@
     <span class="category">{{ad.category}}</span>
     <span class="city">{{ad.city}}</span>
     <p class="description">{{ad.description}}</p>
-<<<<<<< HEAD
-    <a [routerLink]="['/profile/' + ad.createdBy]" class="username">{{ad.username}}</a>
-    <div class="imgs" *ngFor="let image of ad._images">
-=======
     <a [routerLink]="['/publicprofile/' + ad.createdBy]" class="username">{{ad.username}}</a>
     <div class="imgs" *ngFor="let image of ad.images">
->>>>>>> feature/advertisementDetails
-      <img src="{{image}}" alt="">
+      <img src="image" alt="">
     </div>
-    
-    <div *ngIf="isOwner">
-      <button (click)="DeleteAd()">malko nadpis</button>
-    </div>
-    
   </div>
 </div>

@@ -31,7 +31,7 @@ export class AdvertisementDetailsComponent implements OnInit {
       .subscribe(result => {
         this.ad = result.json().result[0];
         this.isLoaded = true;
-        if (this.ad._images.length > 0) {
+        if (this.ad.images.length > 0) {
           this.hasPics = true;
         }
       });
