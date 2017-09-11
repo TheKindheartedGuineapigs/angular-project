@@ -13,6 +13,8 @@ export class AdvertisementDetailsComponent implements OnInit {
   id: string;
   isLoaded: boolean;
   hasPics: boolean;
+  isOwner: boolean;
+  private currentUser: firebase.User;
 
   constructor(router: Router,
     private route: ActivatedRoute,
@@ -27,7 +29,7 @@ export class AdvertisementDetailsComponent implements OnInit {
   ngOnInit() {
     this.LoadAd(this.id)
       .subscribe(result => {
-      this.ad = result.json().result[0];
+        this.ad = result.json().result[0];
         this.isLoaded = true;
         if (this.ad._images.length > 0) {
           this.hasPics = true;
@@ -35,9 +37,7 @@ export class AdvertisementDetailsComponent implements OnInit {
       });
   }
 
-
   private LoadAd(id: string) {
     return this.advertisementService.findById(id);
   }
-
 }

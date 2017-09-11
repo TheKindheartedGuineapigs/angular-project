@@ -23,4 +23,8 @@ export class AdvertisementService {
     getAllAdvertisements() {
         return this.http.get(`${this.apiAdress}/${this.advertisementDir}`);
     }
+
+    deleteAdvertisement(id: string) {
+        return this.http.post(`${this.apiAdress}/${this.advertisementDir}/${id}`, id);
+    }
 }
