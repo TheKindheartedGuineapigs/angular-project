@@ -1,10 +1,10 @@
 <div class="container" style="padding-top: 60px;">
-    <h1 class="page-header">Public Profile</h1>
+    <h1 class="page-header">Profile</h1>
     <div class="row">
         <!-- left column -->
         <div class="col-md-4 col-sm-6 col-xs-12">
             <div class="text-center">
-                <img src="{{ (userProfile | async)?.photoUrl }}" style="width: 100%; height: 100%" class="img-circle" alt="avatar">
+                <img src="{{ (userProfile | async)?.photoUrl }}" style="width: 100%; height: 100%" class="img-circle" alt="(this user has no profile picture)">
             </div>
             <br>
             <div class="col-md-4 col-sm-6 col-xs-12">
