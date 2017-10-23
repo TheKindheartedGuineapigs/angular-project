@@ -12,6 +12,8 @@ import { FormsModule } from '@angular/forms';
 import { ImgurService } from '../services/imgur.service';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { AuthGuardService } from '../services/auth.guard.service';
+import { TruncatePipe } from '../components/shared/truncate.pipe';
+import { HighlightItemDirective } from '../components/shared/highlight.directive';
 
 
 @NgModule({
@@ -26,7 +28,9 @@ import { AuthGuardService } from '../services/auth.guard.service';
   declarations: [
     AdvertisementsComponent,
     AdvertisementDetailsComponent,
-    CreateAdvertisementComponent
+    CreateAdvertisementComponent,
+    TruncatePipe,
+    HighlightItemDirective
   ],
   providers: [
     ImgurService,

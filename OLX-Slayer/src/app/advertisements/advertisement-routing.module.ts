@@ -13,7 +13,7 @@ const advertisementRoutes: Routes = [
     path: 'advertisements',
     children: [
       { path: '', component: AdvertisementsComponent },
-      { path: ':id', component: AdvertisementDetailsComponent, resolve: { user: UserResolver } }
+      { path: ':id', component: AdvertisementDetailsComponent }
     ]
   },
   { path: 'createAdvertisement', component: CreateAdvertisementComponent, resolve: { user: UserResolver } }

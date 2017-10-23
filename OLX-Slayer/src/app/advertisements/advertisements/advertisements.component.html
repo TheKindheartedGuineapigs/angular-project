@@ -1,9 +1,18 @@
 <div class="container">
-  <div class="row" *ngFor="let ad of ads">
-    <img class="img-rounded listing-image" src="{{ad.images[0]}}" alt="no image yet" />
-    <h4><a [routerLink]="['/advertisements/' + ad._id]" class="listing-heading">{{ad.heading}}</a></h4>
-    <p class="listing-category">Category: {{ad.category}}
-      <p>
-        <p class="listing-city">City: {{ad.city}}</p>
+  <div class="row"  *ngFor="let ad of ads" [routerLink]="['/advertisements/' + ad._id]" >
+    <div id="image">
+    <img class="img-rounded listing-image" src="{{ad.images[0]}}" alt="(no image yet)" />
+  </div>
+    <div class="listing-heading">
+      <h5 appHighlightItem>{{ad.heading | truncate}}</h5>
+    </div>
+    <div class="additional-info">
+      <p class="listing-category">
+        Category: {{ad.category}}
+      </p>
+      <p class="listing-city">
+        City: {{ad.city}}
+      </p>
+    </div>
   </div>
 </div>
